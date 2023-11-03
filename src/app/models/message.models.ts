@@ -13,7 +13,11 @@ const messageSchema =new  mongoose.Schema({
    message:{
     type: String,
     require: [true, "message is required"]
+   },
+   resolve:{
+      type: Boolean,
+      default: false
    }
-})
+},{timestamps:true})
 
 export const ContactMessage = mongoose.models.ContactMessage|| mongoose.model("ContactMessage", messageSchema)

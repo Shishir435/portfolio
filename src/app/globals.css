@@ -75,15 +75,7 @@
     @apply bg-background text-foreground;
   }
 }
-@font-face {
-  font-family: 'Soolidium';
-  src: url('/font/Soolidium.woff') format('woff'),
-       url('/font/Soolidium.svg#Soolidium') format('svg'),
-       url('/font/Soolidium.eot'),
-       url('/font/Soolidium.eot?#iefix') format('embedded-opentype');
-  font-weight: normal;
-  font-style: normal;
-}
+
 
 
 .font-custom{
@@ -144,4 +136,8 @@
   height: 60%;
   border-color: #f6f5fe;
   border-width: 3px;
+}
+
+.card_gradient{
+  background: linear-gradient(to right, #f6f5fe, #ffffff);
 }

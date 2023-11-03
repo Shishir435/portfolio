@@ -1,7 +1,7 @@
-import Image from "next/image";
-import { Button, buttonVariants } from "./ui/button";
-import Link from "next/link";
 import { ArrowRight } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
+import { buttonVariants } from "./ui/button";
 
 const Hero = () => {
   return (
@@ -17,34 +17,62 @@ const Hero = () => {
           height={200}
           width={200}
           alt="avatar"
+          priority={true}
         ></Image>
       </div>
       <div className="text-center mt-6">
         <h1 className="font-custom text-5xl sm:text-7xl">Shishir Chaurasiya</h1>
       </div>
       <div className="flex justify-center mt-8 gap-10 items-center">
-        <Link href="https://github.com/Shishir435" 
-        className={`${buttonVariants({variant: "secondary"})} py-4  flex gap-4 px-4 `}
+        <Link
+          href="https://github.com/Shishir435"
+          title="Nextjs Developer"
+          className={`${buttonVariants({
+            variant: "secondary",
+          })} py-4  flex gap-4 px-4 `}
         >
-            <Image src="/next.svg" width={40} height={40} alt="nextjs image"></Image>
-            Developer
+          <Image
+            src="/nextjs.svg"
+            width={30}
+            height={30}
+            alt="nextjs image"
+            style={{ height: "auto" }}
+          ></Image>
+          Developer
         </Link>
-        <Link href="https://github.com/Shishir435"
-        className={`${buttonVariants({variant: "secondary"})}  py-4 flex gap-4 px-4 `}
+        <Link
+          href="https://github.com/Shishir435"
+          title="See My Github"
+          className={`${buttonVariants({
+            variant: "secondary",
+          })}  py-4 flex gap-4 px-4 `}
         >
-            <Image src="/github.svg" width={30} height={30} alt="nextjs image"></Image>
-            Github
+          <Image
+            src="/github.svg"
+            width={30}
+            height={30}
+            alt="github image"
+            style={{ height: "auto" }}
+          ></Image>
+          Github
         </Link>
       </div>
       <div className="text-center mt-8">
-        <p>Crafting <span className="text-gradient">Aesthetic</span> Interfaces and <span className="text-gradient">Seamless</span> Full-stack applications</p>
+        <p>
+          Crafting <span className="text-gradient">Aesthetic</span> Interfaces
+          and <span className="text-gradient">Seamless</span> Full-stack
+          applications
+        </p>
       </div>
 
       <div className="text-center mt-10 mb-3 md:mt-14 ">
-        <Link href="#contact" className={`${buttonVariants({
-            variant: "link"
-        })} bg-blue-600 px-16 py-6 !rounded-full text-white no-underline hover:no-underline`}>
-            Let&apos;s Talk <ArrowRight className="ml-2"/> 
+        <Link
+          href="#contact"
+          className={`${buttonVariants({
+            variant: "link",
+          })} bg-blue-600 px-[80px] py-6 !rounded-full text-white text-lg no-underline hover:no-underline`}
+        >
+          Let&apos;s Talk <ArrowRight className="ml-2" />
         </Link>
       </div>
     </section>

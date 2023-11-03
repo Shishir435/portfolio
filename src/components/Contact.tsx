@@ -13,7 +13,6 @@ const Contact = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
-
   const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (e: FormEvent) => {
@@ -30,7 +29,6 @@ const Contact = () => {
       setLoading(true);
       const resposne = await axios.post("/api/portfolio/contact", contactData);
       console.log("successfully saved contact message", resposne);
-
       setEmail("");
       setName("");
       setMessage("");
@@ -49,14 +47,13 @@ const Contact = () => {
         <div className="flex gap-4 w-full justify-between items-center">
           <div className="hidden md:block w-1/2">
             <div className=" flex flex-col gap-10">
-              
               <p>Let's work Togather</p>
               <p>Alternatively you can email me at</p>
-              <p
-                className="text-blue-400"
-              >
-                shishirchaurasiya435@gmail.com
-              </p>
+              <Link href="mailto:shishirchaurasiya435@gmail.com">
+                <p className="text-blue-400 ">
+                  shishirchaurasiya435@gmail.com
+                </p>
+              </Link>
             </div>
           </div>
           <div className="w-full md:w-1/2">
@@ -113,12 +110,12 @@ const Contact = () => {
         </div>
         <div className="md:hidden text-center mt-10 ">
           <p>Alternatively you can email me at</p>
-          <p
-            
-            className="text-blue-400"
-          >
-            shishirchaurasiya435@gmail.com
-          </p>
+
+          <Link href="mailto:shishirchaurasiya435@gmail.com">
+            <p className="text-blue-400">
+              shishirchaurasiya435@gmail.com
+            </p>
+          </Link>
         </div>
       </div>
     </section>
