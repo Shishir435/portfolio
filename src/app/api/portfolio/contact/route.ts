@@ -1,5 +1,4 @@
 import { ContactMessage } from "@/app/models/message.models";
-import { PortAuth } from "@/app/models/portAuth.models";
 import { connect } from "@/lib/mongodb";
 import { NextRequest, NextResponse } from "next/server";
 
@@ -17,7 +16,8 @@ export async function POST(request: NextRequest){
             email,
             message
         })
-        // console.log(savedMessag)
+       const savedmessage= await newContactMessage.save();
+    //    console.log(savedmessage);
         return NextResponse.json({
             message: "user messag saved successfully",
             success: true,

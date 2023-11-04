@@ -1,12 +1,17 @@
+// import { PortAuth } from "@/app/models/portAuth.models";
+
 import { PortAuth } from "@/app/models/portAuth.models";
+import { connect } from "@/lib/mongodb";
 import { NextRequest, NextResponse } from "next/server";
 
+connect();
 
 export async function GET(request:NextRequest) {
     try {
-        const resp = await PortAuth.find({})
+        console.log("inside auth")
+        const resp = await PortAuth.find({});
         return NextResponse.json({
-            message: "datafetch successfull",
+            message: "data fetch successfull",
             resp
         })
     } catch (error: any) {
@@ -16,5 +21,4 @@ export async function GET(request:NextRequest) {
         }, { status: 400 })
 
     }
-
 }
