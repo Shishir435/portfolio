@@ -1,4 +1,5 @@
 import { ContactMessage } from "@/app/models/message.models";
+import { PortAuth } from "@/app/models/portAuth.models";
 import { connect } from "@/lib/mongodb";
 import { NextRequest, NextResponse } from "next/server";
 
@@ -16,8 +17,6 @@ export async function POST(request: NextRequest){
             email,
             message
         })
-
-        const savedMessag= await newContactMessage.save();
         // console.log(savedMessag)
         return NextResponse.json({
             message: "user messag saved successfully",
@@ -28,6 +27,8 @@ export async function POST(request: NextRequest){
         return NextResponse.json({error: error.message}, {status: 500})
     }
 }
+
+
 
 export async function GET(request: NextRequest){
 
@@ -44,4 +45,24 @@ export async function GET(request: NextRequest){
         }, {status: 400})
     }
 
+}
+
+export async function PATCH(request:NextRequest){
+    try {
+        const req= await request.json();
+        const {id, resolveValue}:{id:string, resolveValue:boolean}=req;
+        const resp= await ContactMessage.findByIdAndUpdate({_id: id },{
+            resolve: resolveValue
+        })
+
+        return NextResponse.json({
+            message: "successfully updated",
+            resp
+        })
+    } catch (error: any) {
+        console.log("something wen wrong while updating",error);
+        return NextResponse.json({
+            error: error.message
+        },{status: 500})
+    }
 }
