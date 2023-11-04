@@ -1,5 +1,6 @@
 import { ContactMessage } from "@/app/models/message.models";
 import { connect } from "@/lib/mongodb";
+import { AxiosRequestConfig } from "axios";
 import { NextRequest, NextResponse } from "next/server";
 
 
@@ -31,14 +32,36 @@ export async function POST(request: NextRequest){
 
 
 export async function GET(request: NextRequest){
+   
+    const searchTpye=request.nextUrl.searchParams.get('fetchType')
+    // console.dir(search);
+    // console.log(searchTpye);
 
     try {
-        const resp= await ContactMessage.find({})
+        
+        if(searchTpye==="all"){
+            const resp= await ContactMessage.find({})
+            return NextResponse.json({
+                message: "data fetching success full",
+                resp
+            })
+        }else if(searchTpye==="unresolved"){
 
-        return NextResponse.json({
-            message: "data fetching success full",
-            resp
-        })
+            const resp= await ContactMessage.find({resolve: false})
+            return NextResponse.json({
+                message: "data fetching success full",
+                resp
+            })
+        }
+        else if(searchTpye==="resolved"){
+
+            const resp= await ContactMessage.find({resolve: true})
+            return NextResponse.json({
+                message: "data fetching success full",
+                resp
+            })
+        }
+        
     } catch (error:any) {
         return NextResponse.json({
             error: error.message

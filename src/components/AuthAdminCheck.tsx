@@ -1,22 +1,23 @@
 import {
-    Dialog,
-    DialogContent,
-    DialogDescription,
-    DialogHeader,
-    DialogTitle,
-    DialogTrigger,
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
 } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import axios from "axios";
 import { Eye, EyeOff } from "lucide-react";
 import React, {
-    ChangeEvent,
-    Dispatch,
-    SetStateAction,
-    useEffect,
-    useState,
+  ChangeEvent,
+  Dispatch,
+  SetStateAction,
+  useEffect,
+  useState,
 } from "react";
+import Overlay from "./Overlay";
 import { Button } from "./ui/button";
 const AuthAdminCheck = ({
   setIsAdmin,
@@ -31,6 +32,8 @@ const AuthAdminCheck = ({
   const [passwordType, setPasswordType] = useState<"text" | "password">(
     "password"
   );
+
+  const [isLoading, setIsLoading] = useState(false)
   function handleAdminSubmit(e: React.FormEvent) {
     e.preventDefault();
     handleAdminValidation(username, password);
@@ -40,6 +43,7 @@ const AuthAdminCheck = ({
 
   async function handleAdminValidation(username: string, password: string) {
     try {
+      setIsLoading(true)
       const { data } = await axios.get("/api/portfolio/auth");
       const { resp } = data;
       const admin = resp[0];
@@ -52,8 +56,10 @@ const AuthAdminCheck = ({
           "adminData",
           JSON.stringify({ username, password, expiration })
         );
+        setIsLoading(false)
       } else {
         setIsAdmin(false);
+        setIsLoading(false)
         alert(
           "This site is reserved for administrators only. Please refrain from accessing this page if you are not an admin."
         );
@@ -61,6 +67,7 @@ const AuthAdminCheck = ({
     } catch (error: any) {
       console.error(error.message);
       setIsAdmin(false);
+      setIsLoading(false)
       alert("Something went wrong while validating credentials");
     }
   }
@@ -84,6 +91,7 @@ const AuthAdminCheck = ({
       <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl text-center">
         "This site is exclusively for administrators."
       </h1>
+      {isLoading && (<Overlay/>)}
       <Dialog>
         <DialogTrigger asChild>
           <Button variant="default">Enter Credentail</Button>

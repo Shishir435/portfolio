@@ -1,19 +1,19 @@
 "use client";
 
 import AuthAdminCheck from "@/components/AuthAdminCheck";
+import Overlay from "@/components/Overlay";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import {
   Table,
   TableBody,
-  TableCaption,
   TableCell,
   TableHead,
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
 import axios from "axios";
-import { useState } from "react";
+import { useRef, useState } from "react";
 
 interface ContactMessage {
   _id: string;
@@ -24,18 +24,17 @@ interface ContactMessage {
 }
 
 const page = () => {
-  const [ContactMessages, setContactMessages] = useState<ContactMessage[]>([]);
 
-  const [loading, setLoading] = useState(false);
+  const [ContactMessages, setContactMessages] = useState<ContactMessage[]>([]);
+  const [isLoading, setIsLoading] = useState(false);
   const [isResolveing, setIsResolving] = useState(false);
   const [IsAdmin, setIsAdmin] = useState(false);
-
+  const [getFetchType, setGetFetchType]=useState<string>("all")
   function stringTobool(data: string) {
     if (data === "true") return true;
     return false;
   }
   async function handleCheckBoxChnage(_id: string, value: boolean | string) {
-    // Convert the value to a boolean if it's a string
     const boolVal = typeof value === "string" ? stringTobool(value) : value;
 
     setContactMessages((prevContactMessages) => {
@@ -75,34 +74,61 @@ const page = () => {
     }
   }
 
-  async function handleClick() {
+  async function fetchMessages(fetchType: string) {
     try {
-      setLoading(true);
-      const resposne = await axios.get("/api/portfolio/contact");
+      setIsLoading(true);
+      const resposne = await axios.get(
+        `/api/portfolio/contact?fetchType=${fetchType}`
+      );
       setContactMessages(resposne.data.resp);
     } catch (error) {
       console.log(error);
-      setLoading(false);
+      setIsLoading(false);
       alert("Oops somethis went wrong please check console for more info");
     } finally {
-      setLoading(false);
+      setIsLoading(false);
     }
+  }
+
+  function handleClick(event: React.MouseEvent<HTMLButtonElement>) {
+    const fetchType = event.currentTarget.getAttribute("data-fetch");
+    let mock = "all";
+    
+    fetchType ? fetchMessages(fetchType) : fetchMessages(mock);
+    fetchType? setGetFetchType(fetchType) : setGetFetchType("all")
   }
 
   return IsAdmin ? (
     <div className="flex flex-col justify-center items-center p-6 gap-10">
-      <Button onClick={handleClick}>
-        {loading ? "fetching messages" : "fetch messages"}
-      </Button>
+      {/* Loading state overlay */}
+      {isLoading && (<Overlay/>)}
+
+      <div className="flex flex-wrap gap-4">
+        <div>
+          <Button onClick={handleClick} data-fetch="all">
+            All 
+          </Button>
+        </div>
+        <div>
+          <Button onClick={handleClick} data-fetch="unresolved">
+            Unresolved
+          </Button>
+        </div>
+        <div>
+          <Button onClick={handleClick} data-fetch="resolved">
+            Resolved
+          </Button>
+        </div>
+      </div>
       <div>
+          <h1 className="text-center">{ContactMessages.length===0 && getFetchType==="all"?"please click on all button to fetch ":`You have ${ContactMessages.length} ${getFetchType} `} messages. </h1>
         <Table>
-          <TableCaption>A list of your recent messages.</TableCaption>
           <TableHeader>
             <TableRow>
               <TableHead className="w-[100px]">Name</TableHead>
               <TableHead>Email</TableHead>
               <TableHead>Message</TableHead>
-              <TableHead>Resolve</TableHead>
+              <TableHead className="text-center">Resolve</TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
@@ -111,11 +137,10 @@ const page = () => {
                 <TableCell className="font-medium">{name}</TableCell>
                 <TableCell>{email}</TableCell>
                 <TableCell>{message}</TableCell>
-                <TableCell>
+                <TableCell className="text-center">
                   <Checkbox
                     checked={resolve}
                     onCheckedChange={(value) => {
-                      //  console.log(value)
                       handleCheckBoxChnage(_id, value);
                     }}
                   />
