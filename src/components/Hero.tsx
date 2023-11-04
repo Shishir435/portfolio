@@ -5,7 +5,7 @@ import { buttonVariants } from "./ui/button";
 
 const Hero = () => {
   return (
-    <section id="hero">
+    <section id="hero" >
       <div className="overflow-hidden">
         <div className="bubble-top"></div>
         <div className="bubble"></div>
