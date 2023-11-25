@@ -11,7 +11,6 @@ module.exports = {
     
     fontFamily: {
       'sans': ['Roboto', 'Poppins', 'system-ui', 'sans'],
-      'soolidium': ['Soolidium', 'sans'],
     },
     container: {
       center: true,

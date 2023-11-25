@@ -22,7 +22,7 @@ const About = () => {
           </div>
           <div className="hidden md:block w-2/5 ">
             <Image
-              src="/shishir.jpeg"
+              src="/webp/shishir.webp"
               title="Shishir's Image"
               width={200}
               height={200}

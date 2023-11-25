@@ -10,12 +10,13 @@ const Hero = () => {
         <div className="bubble-top"></div>
         <div className="bubble"></div>
       </div>
-      <div className="h-[200px] w-[200px] mx-auto bg-gradient-to-r from-[#fae5fa]  to-[#dae6f9] rounded-full overflow-hidden flex justify-center items-center">
+      <div className="h-[200px] w-[200px] mx-auto rounded-full bg-gradient-to-r from-[#fae5fa]  to-[#dae6f9]">
         <Image
-          src="/panda.jpeg"
-          className="rounded-full "
-          height={200}
-          width={200}
+          src="/panda300circ.png"
+          className=""
+          // style={{height: 200, width: 200}}
+          height={300}
+          width={300}
           alt="avatar"
           priority={true}
         ></Image>
@@ -32,7 +33,7 @@ const Hero = () => {
           })} py-4  flex gap-4 px-4 `}
         >
           <Image
-            src="/nextjs.svg"
+            src="/nextjs30.png"
             width={30}
             height={30}
             alt="nextjs image"
@@ -48,7 +49,7 @@ const Hero = () => {
           })}  py-4 flex gap-4 px-4 `}
         >
           <Image
-            src="/github.svg"
+            src="/github30.png"
             width={30}
             height={30}
             alt="github image"

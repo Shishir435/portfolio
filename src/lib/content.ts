@@ -1,22 +1,22 @@
 const AboutLinks=[
     {
       name: "Upwork",
-      imgUrl: "/upwork.svg",
+      imgUrl: "/webp/upwork40.webp",
       url: "https://www.upwork.com/freelancers/~019752a06cf3f11b51",
     },
     {
       name: "Github",
-      imgUrl: "/github.svg",
+      imgUrl: "/github40.png",
       url: "https://github.com/Shishir435",
     },
     {
       name: "Linkedin",
-      imgUrl: "/linkedin.svg",
+      imgUrl: "/webp/linkedin40.webp",
       url: "https://linkedin.com/in/shishir-chaurasiya",
     },
     {
       name: "Instagram",
-      imgUrl: "/instagram.svg",
+      imgUrl: "/instagram40.png",
       url: "https://www.instagram.com/_shishir435/",
     },
   ]
@@ -66,48 +66,48 @@ const AboutLinks=[
   const Technologies = [
     {
       name: "JavaScript",
-      icon: "/javascript.svg",
+      icon: "/webp/javascript80.webp",
     },
     {
       name: "Typescript",
-      icon: "/typescript.svg",
+      icon: "/webp/typescript80.webp",
     },
     {
       name: "React JS",
-      icon: "/react.svg",
+      icon: "/webp/react80.webp",
     },
   
     {
       name: "Nextjs",
-      icon: "/nextjs.svg",
+      icon: "/webp/nextjs80.webp",
     },
     {
       name: "Redux Toolkit",
-      icon: "/redux.svg",
+      icon: "/webp/redux80.webp",
     },
     {
       name: "Tailwind CSS",
-      icon: "/tailwind.svg",
+      icon: "/webp/tailwind80.webp",
     },
     {
       name: "Express",
-      icon: "/express.svg",
+      icon: "/express80.png",
     },
     {
       name: "Node JS",
-      icon: "/nodejs.svg",
+      icon: "/webp/nodejs80.webp",
     },
     {
       name: "MongoDB",
-      icon: "/mongodb.svg",
+      icon: "/webp/mongodb80.webp",
     },
     {
       name: "git",
-      icon: "/git.svg",
+      icon: "/webp/git80.webp",
     },
     {
       name: "github",
-      icon: "/github.svg",
+      icon: "/webp/github80.webp",
     },
   ];
   const Projects = [

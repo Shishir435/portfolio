@@ -50,7 +50,7 @@ const Contact = () => {
               <p>Let's work Togather</p>
               <p>Alternatively you can email me at</p>
               <Link href="mailto:shishirchaurasiya435@gmail.com">
-                <p className="text-blue-400 ">
+                <p className="text-blue-950">
                   shishirchaurasiya435@gmail.com
                 </p>
               </Link>
@@ -112,7 +112,7 @@ const Contact = () => {
           <p>Alternatively you can email me at</p>
 
           <Link href="mailto:shishirchaurasiya435@gmail.com">
-            <p className="text-blue-400">
+            <p className="text-blue-950">
               shishirchaurasiya435@gmail.com
             </p>
           </Link>

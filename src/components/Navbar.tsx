@@ -1,9 +1,5 @@
-// "use client";
-
 import Link from "next/link";
 import { buttonVariants } from "./ui/button";
-// import { Menu } from "lucide-react";
-// import { useState } from "react";
 import MobileNav from "./MobileNav";
 import { DesktopNavLinks } from "@/lib/content";
 import Circle from "./Circle";

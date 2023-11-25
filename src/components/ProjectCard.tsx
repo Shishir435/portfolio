@@ -41,12 +41,12 @@ const ProjectCard = ({
                 title="Github Repo Link"
               >
                 <Image
-                  src="/github.svg"
+                  src="/github30.png"
                   alt="github_link"
                   height="30"
                   width="30"
                   style={{ height: "auto" }}
-                  className="w-[30px] h-[30px] object-contain"
+                  className=" object-contain bg-transparent"
                 />
               </Link>
             </div>
@@ -57,12 +57,12 @@ const ProjectCard = ({
                 title="Live Website Link"
               >
                 <Image
-                  src="/website.svg"
+                  src="/website30.png"
                   alt="website_link"
                   height={30}
                   width={30}
                   style={{ height: "auto" }}
-                  className="w-[30px] h-[30px] object-contain"
+                  className="object-contain bg-transparent"
                 />
               </Link>
             </div>

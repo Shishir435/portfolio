@@ -11,8 +11,9 @@ const TechCard = ({ name, icon }: { name: string; icon: string }) => {
           title={name}
           width={80}
           height={80}
+          style={{height: 80, width: 80}}
           alt={`${name}_logo`}
-          style={{height: "auto"}}
+          // style={{height: "auto"}}
           className="  object-contain h-auto w-auto"
         />
       </div>
