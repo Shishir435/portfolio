@@ -12,7 +12,7 @@
     "prepare": "husky"
   },
   "lint-staged": {
-    "**/*": "git add . && prettier --write ."
+    "**/*": "prettier --write ."
   },
   "husky": {
     "hooks": {
