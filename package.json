@@ -12,7 +12,7 @@
     "prepare": "husky"
   },
   "lint-staged": {
-    "**/*": "prettier --write --ignore-unknown"
+    "**/*": "prettier --write ."
   },
   "dependencies": {
     "@emailjs/browser": "^3.11.0",
