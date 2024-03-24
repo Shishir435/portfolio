@@ -1,5 +1,5 @@
-import { Technologies } from "@/lib/content";
-import TechCard from "./TechCard";
+import { Technologies } from "@/lib/content"
+import TechCard from "./TechCard"
 
 const Tech = () => {
   return (
@@ -12,7 +12,7 @@ const Tech = () => {
         ))}
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Tech;
+export default Tech

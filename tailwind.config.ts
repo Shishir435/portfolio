@@ -2,21 +2,20 @@
 module.exports = {
   darkMode: ["class"],
   content: [
-    './pages/**/*.{ts,tsx}',
-    './components/**/*.{ts,tsx}',
-    './app/**/*.{ts,tsx}',
-    './src/**/*.{ts,tsx}',
-	],
+    "./pages/**/*.{ts,tsx}",
+    "./components/**/*.{ts,tsx}",
+    "./app/**/*.{ts,tsx}",
+    "./src/**/*.{ts,tsx}",
+  ],
   theme: {
-    
     fontFamily: {
-      'sans': ['Roboto', 'Poppins', 'system-ui', 'sans'],
+      sans: ["Roboto", "Poppins", "system-ui", "sans"],
     },
     container: {
       center: true,
       padding: "2rem",
       screens: {
-        "xs": "500px",
+        xs: "500px",
         "2xl": "1400px",
       },
     },

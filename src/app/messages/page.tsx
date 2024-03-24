@@ -1,9 +1,9 @@
-"use client";
+"use client"
 
-import AuthAdminCheck from "@/components/AuthAdminCheck";
-import Overlay from "@/components/Overlay";
-import { Button } from "@/components/ui/button";
-import { Checkbox } from "@/components/ui/checkbox";
+import AuthAdminCheck from "@/components/AuthAdminCheck"
+import Overlay from "@/components/Overlay"
+import { Button } from "@/components/ui/button"
+import { Checkbox } from "@/components/ui/checkbox"
 import {
   Table,
   TableBody,
@@ -11,102 +11,101 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "@/components/ui/table";
-import axios from "axios";
-import { useRef, useState } from "react";
+} from "@/components/ui/table"
+import axios from "axios"
+import { useRef, useState } from "react"
 
 interface ContactMessage {
-  _id: string;
-  name: string;
-  email: string;
-  message: string;
-  resolve: boolean;
+  _id: string
+  name: string
+  email: string
+  message: string
+  resolve: boolean
 }
 
 const page = () => {
-
-  const [ContactMessages, setContactMessages] = useState<ContactMessage[]>([]);
-  const [isLoading, setIsLoading] = useState(false);
-  const [isResolveing, setIsResolving] = useState(false);
-  const [IsAdmin, setIsAdmin] = useState(false);
-  const [getFetchType, setGetFetchType]=useState<string>("all")
+  const [ContactMessages, setContactMessages] = useState<ContactMessage[]>([])
+  const [isLoading, setIsLoading] = useState(false)
+  const [isResolveing, setIsResolving] = useState(false)
+  const [IsAdmin, setIsAdmin] = useState(false)
+  const [getFetchType, setGetFetchType] = useState<string>("all")
   function stringTobool(data: string) {
-    if (data === "true") return true;
-    return false;
+    if (data === "true") return true
+    return false
   }
   async function handleCheckBoxChnage(_id: string, value: boolean | string) {
-    const boolVal = typeof value === "string" ? stringTobool(value) : value;
+    const boolVal = typeof value === "string" ? stringTobool(value) : value
 
     setContactMessages((prevContactMessages) => {
       return prevContactMessages.map((message) => {
         if (message._id === _id) {
           // Optimistic update: Update the resolve value
-          return { ...message, resolve: boolVal };
+          return { ...message, resolve: boolVal }
         }
-        return message;
-      });
-    });
+        return message
+      })
+    })
 
     const patchData = {
       id: _id,
       resolveValue: boolVal,
-    };
+    }
 
     try {
-      setIsResolving(true);
-      const response = await axios.patch("/api/portfolio/contact", patchData);
+      setIsResolving(true)
+      const response = await axios.patch("/api/portfolio/contact", patchData)
       // Successful API call, no need for additional UI updates
       // console.log(response);
     } catch (error) {
-      console.error("handleCheckBoxChnage", error);
+      console.error("handleCheckBoxChnage", error)
 
       // If the API call fails, revert the local state to its previous value
       setContactMessages((prevContactMessages) => {
         return prevContactMessages.map((message) => {
           if (message._id === _id) {
-            return { ...message, resolve: !boolVal };
+            return { ...message, resolve: !boolVal }
           }
-          return message;
-        });
-      });
+          return message
+        })
+      })
     } finally {
-      setIsResolving(false);
+      setIsResolving(false)
     }
   }
 
   async function fetchMessages(fetchType: string) {
     try {
-      setIsLoading(true);
+      setIsLoading(true)
       const resposne = await axios.get(
         `/api/portfolio/contact?fetchType=${fetchType}`
-      );
-      setContactMessages(resposne.data.resp);
+      )
+      setContactMessages(resposne.data.resp)
     } catch (error) {
-      console.log(error);
-      setIsLoading(false);
-      alert("Oops somethis went wrong please check console for more info");
+      console.log(error)
+      setIsLoading(false)
+      alert("Oops somethis went wrong please check console for more info")
     } finally {
-      setIsLoading(false);
+      setIsLoading(false)
     }
   }
 
   function handleClick(event: React.MouseEvent<HTMLButtonElement>) {
-    const fetchType = event.currentTarget.getAttribute("data-fetch");
-    let mock = "all";
-    
-    fetchType ? fetchMessages(fetchType) : fetchMessages(mock);
-    fetchType? setGetFetchType(fetchType) : setGetFetchType("all")
+    const fetchType = event.currentTarget.getAttribute("data-fetch")
+    let mock = "all"
+
+    fetchType ? fetchMessages(fetchType) : fetchMessages(mock)
+    fetchType ? setGetFetchType(fetchType) : setGetFetchType("all")
   }
 
   return IsAdmin ? (
     <div className="flex flex-col justify-center items-center p-6 gap-10">
       {/* Loading state overlay */}
-      {isLoading && (<Overlay/>)}
+      {isLoading && <Overlay />}
 
       <div className="flex flex-wrap gap-4">
         <div>
           <Button onClick={handleClick} data-fetch="all">
-            All 
+            All
           </Button>
         </div>
         <div>
@@ -121,7 +120,12 @@ const page = () => {
         </div>
       </div>
       <div>
-          <h1 className="text-center">{ContactMessages.length===0 && getFetchType==="all"?"please click on all button to fetch ":`You have ${ContactMessages.length} ${getFetchType} `} messages. </h1>
+        <h1 className="text-center">
+          {ContactMessages.length === 0 && getFetchType === "all"
+            ? "please click on all button to fetch "
+            : `You have ${ContactMessages.length} ${getFetchType} `}{" "}
+          messages.{" "}
+        </h1>
         <Table>
           <TableHeader>
             <TableRow>
@@ -141,7 +145,7 @@ const page = () => {
                   <Checkbox
                     checked={resolve}
                     onCheckedChange={(value) => {
-                      handleCheckBoxChnage(_id, value);
+                      handleCheckBoxChnage(_id, value)
                     }}
                   />
                 </TableCell>
@@ -153,7 +157,7 @@ const page = () => {
     </div>
   ) : (
     <AuthAdminCheck setIsAdmin={setIsAdmin} />
-  );
-};
+  )
+}
 
-export default page;
+export default page

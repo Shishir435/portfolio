@@ -1,44 +1,44 @@
-"use client";
+"use client"
 
-import React, { ChangeEvent, FormEvent, useRef, useState } from "react";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { Textarea } from "@/components/ui/textarea";
-import { Button } from "./ui/button";
-import axios from "axios";
-import Link from "next/link";
+import React, { ChangeEvent, FormEvent, useRef, useState } from "react"
+import { Input } from "@/components/ui/input"
+import { Label } from "@/components/ui/label"
+import { Textarea } from "@/components/ui/textarea"
+import { Button } from "./ui/button"
+import axios from "axios"
+import Link from "next/link"
 
 const Contact = () => {
-  const formRef = useRef(null);
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [message, setMessage] = useState("");
-  const [loading, setLoading] = useState(false);
+  const formRef = useRef(null)
+  const [name, setName] = useState("")
+  const [email, setEmail] = useState("")
+  const [message, setMessage] = useState("")
+  const [loading, setLoading] = useState(false)
 
   const handleSubmit = async (e: FormEvent) => {
-    e.preventDefault();
-    setLoading(true);
+    e.preventDefault()
+    setLoading(true)
 
     const contactData = {
       name,
       email,
       message,
-    };
+    }
 
     try {
-      setLoading(true);
-      const resposne = await axios.post("/api/portfolio/contact", contactData);
-      console.log("successfully saved contact message", resposne);
-      setEmail("");
-      setName("");
-      setMessage("");
-      alert("successfully saved data");
+      setLoading(true)
+      const resposne = await axios.post("/api/portfolio/contact", contactData)
+      console.log("successfully saved contact message", resposne)
+      setEmail("")
+      setName("")
+      setMessage("")
+      alert("successfully saved data")
     } catch (error) {
-      console.log("somethig went wrong", error);
+      console.log("somethig went wrong", error)
     } finally {
-      setLoading(false);
+      setLoading(false)
     }
-  };
+  }
 
   return (
     <section id="contact" className="!mt-25 mb-20">
@@ -50,9 +50,7 @@ const Contact = () => {
               <p>Let's work Togather</p>
               <p>Alternatively you can email me at</p>
               <Link href="mailto:shishirchaurasiya435@gmail.com">
-                <p className="text-blue-950">
-                  shishirchaurasiya435@gmail.com
-                </p>
+                <p className="text-blue-950">shishirchaurasiya435@gmail.com</p>
               </Link>
             </div>
           </div>
@@ -112,14 +110,12 @@ const Contact = () => {
           <p>Alternatively you can email me at</p>
 
           <Link href="mailto:shishirchaurasiya435@gmail.com">
-            <p className="text-blue-950">
-              shishirchaurasiya435@gmail.com
-            </p>
+            <p className="text-blue-950">shishirchaurasiya435@gmail.com</p>
           </Link>
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Contact;
+export default Contact

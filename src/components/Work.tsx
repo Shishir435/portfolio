@@ -1,5 +1,5 @@
-import { Projects } from "@/lib/content";
-import ProjectCard from "./ProjectCard";
+import { Projects } from "@/lib/content"
+import ProjectCard from "./ProjectCard"
 
 const Work = () => {
   return (
@@ -23,7 +23,7 @@ const Work = () => {
         </div>
       </section>
     </>
-  );
-};
+  )
+}
 
-export default Work;
+export default Work

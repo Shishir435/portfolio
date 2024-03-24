@@ -12,7 +12,12 @@
     "prepare": "husky"
   },
   "lint-staged": {
-    "**/*": "prettier --write ."
+    "**/*": "git add . && prettier --write ."
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run format:fix"
+    }
   },
   "dependencies": {
     "@emailjs/browser": "^3.11.0",

@@ -1,16 +1,16 @@
-import Image from "next/image";
-import Link from "next/link";
-import { v4 as uuid } from "uuid";
+import Image from "next/image"
+import Link from "next/link"
+import { v4 as uuid } from "uuid"
 interface Tag {
-  name: string;
-  color: string;
+  name: string
+  color: string
 }
 interface ProjectCard {
-  name: string;
-  description: string;
-  tags: Tag[];
-  source_code_link: string;
-  live_demo_link: string;
+  name: string
+  description: string
+  tags: Tag[]
+  source_code_link: string
+  live_demo_link: string
 }
 
 const ProjectCard = ({
@@ -82,7 +82,7 @@ const ProjectCard = ({
         </div>
       </Link>
     </div>
-  );
-};
+  )
+}
 
-export default ProjectCard;
+export default ProjectCard

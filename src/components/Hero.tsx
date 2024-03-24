@@ -1,11 +1,11 @@
-import { ArrowRight } from "lucide-react";
-import Image from "next/image";
-import Link from "next/link";
-import { buttonVariants } from "./ui/button";
+import { ArrowRight } from "lucide-react"
+import Image from "next/image"
+import Link from "next/link"
+import { buttonVariants } from "./ui/button"
 
 const Hero = () => {
   return (
-    <section id="hero" >
+    <section id="hero">
       <div className="overflow-hidden">
         <div className="bubble-top"></div>
         <div className="bubble"></div>
@@ -77,7 +77,7 @@ const Hero = () => {
         </Link>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Hero;
+export default Hero

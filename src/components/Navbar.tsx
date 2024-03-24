@@ -1,8 +1,8 @@
-import Link from "next/link";
-import { buttonVariants } from "./ui/button";
-import MobileNav from "./MobileNav";
-import { DesktopNavLinks } from "@/lib/content";
-import Circle from "./Circle";
+import Link from "next/link"
+import { buttonVariants } from "./ui/button"
+import MobileNav from "./MobileNav"
+import { DesktopNavLinks } from "@/lib/content"
+import Circle from "./Circle"
 
 const Navbar = () => {
   return (
@@ -16,18 +16,22 @@ const Navbar = () => {
           </Link>
         </div>
         {/* cicles */}
-         <Circle/>
+        <Circle />
         {/* Desktop navigation */}
         <div className="hidden md:block">
           <div className="flex items-center">
-            {DesktopNavLinks.map(({linkName, linkTo}:{linkName: string,linkTo: string})=>(<div key={linkName}>
-              <Link
-                href={linkTo}
-                className={`${buttonVariants({ variant: "ghost" })} capitalize `}
-              >
-                {linkName}
-              </Link>
-            </div>))}
+            {DesktopNavLinks.map(
+              ({ linkName, linkTo }: { linkName: string; linkTo: string }) => (
+                <div key={linkName}>
+                  <Link
+                    href={linkTo}
+                    className={`${buttonVariants({ variant: "ghost" })} capitalize `}
+                  >
+                    {linkName}
+                  </Link>
+                </div>
+              )
+            )}
           </div>
         </div>
         <div className="hidden md:block">
@@ -43,10 +47,10 @@ const Navbar = () => {
           </div>
         </div>
         {/* Mobile naigation */}
-        <MobileNav/>
+        <MobileNav />
       </div>
     </>
-  );
-};
+  )
+}
 
-export default Navbar;
+export default Navbar

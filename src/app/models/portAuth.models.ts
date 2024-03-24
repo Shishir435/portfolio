@@ -1,15 +1,19 @@
-import mongoose from "mongoose";
+import mongoose from "mongoose"
 
-const PortAuthSchema = new mongoose.Schema({
-    username:{
-        type: String,
-        require: true,
-        unique: true
+const PortAuthSchema = new mongoose.Schema(
+  {
+    username: {
+      type: String,
+      require: true,
+      unique: true,
     },
-    password:{
-        type: String,
-        require: true
-    }
-},{timestamps:true})
+    password: {
+      type: String,
+      require: true,
+    },
+  },
+  { timestamps: true }
+)
 
-export const PortAuth= mongoose.models.PortAuth || mongoose.model("PortAuth",PortAuthSchema)
+export const PortAuth =
+  mongoose.models.PortAuth || mongoose.model("PortAuth", PortAuthSchema)

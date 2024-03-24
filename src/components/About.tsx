@@ -1,7 +1,7 @@
-import Image from "next/image";
-import Link from "next/link";
-import { buttonVariants } from "./ui/button";
-import { AboutLinks } from "@/lib/content";
+import Image from "next/image"
+import Link from "next/link"
+import { buttonVariants } from "./ui/button"
+import { AboutLinks } from "@/lib/content"
 
 const About = () => {
   return (
@@ -44,25 +44,25 @@ const About = () => {
             </Link>
           </div>
           <div className="flex gap-3 md:-translate-x-6">
-            {AboutLinks.map(({name,imgUrl,url})=>(
+            {AboutLinks.map(({ name, imgUrl, url }) => (
               <div key={name}>
-              <Link href={url} target="_blank">
-                <Image
-                  src={imgUrl}
-                  width={40}
-                  height={40}
-                  alt={`${name} link"`}
-                  title={`See my ${name} profile`}
-                  style={{ height: "auto" }}
-                ></Image>
-              </Link>
-            </div>
+                <Link href={url} target="_blank">
+                  <Image
+                    src={imgUrl}
+                    width={40}
+                    height={40}
+                    alt={`${name} link"`}
+                    title={`See my ${name} profile`}
+                    style={{ height: "auto" }}
+                  ></Image>
+                </Link>
+              </div>
             ))}
           </div>
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default About;
+export default About

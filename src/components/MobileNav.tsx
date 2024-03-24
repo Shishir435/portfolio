@@ -1,23 +1,23 @@
-"use client";
+"use client"
 
-import { Menu } from "lucide-react";
-import { useState } from "react";
-import { buttonVariants } from "./ui/button";
-import Link from "next/link";
-import { MobileNavLinks } from "@/lib/content";
+import { Menu } from "lucide-react"
+import { useState } from "react"
+import { buttonVariants } from "./ui/button"
+import Link from "next/link"
+import { MobileNavLinks } from "@/lib/content"
 
 const MobileNav = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
   function closeMenu(linkName: string) {
-    console.log(linkName);
-    setIsMenuOpen(false);
+    console.log(linkName)
+    setIsMenuOpen(false)
   }
   return (
     <>
       <div
         className="md:hidden cursor-pointer"
         onClick={() => {
-          setIsMenuOpen((prev) => !prev);
+          setIsMenuOpen((prev) => !prev)
         }}
       >
         <Menu />
@@ -43,10 +43,10 @@ const MobileNav = () => {
         </div>
       )}
     </>
-  );
-};
+  )
+}
 
-export default MobileNav;
+export default MobileNav
 
 // <div onClick={closeMenu}>
 //                 <Link
