@@ -116,7 +116,7 @@ devDependencies:
     specifier: ^10.0.1
     version: 10.4.19(postcss@8.4.38)
   eslint:
-    specifier: ^8.57.0
+    specifier: ^8
     version: 8.57.0
   eslint-config-next:
     specifier: 14.0.1
@@ -124,15 +124,6 @@ devDependencies:
   eslint-config-prettier:
     specifier: ^9.1.0
     version: 9.1.0(eslint@8.57.0)
-  eslint-plugin-import:
-    specifier: ^2.29.1
-    version: 2.29.1(@typescript-eslint/parser@6.21.0)(eslint-import-resolver-typescript@3.6.1)(eslint@8.57.0)
-  eslint-plugin-tailwindcss:
-    specifier: ^3.15.1
-    version: 3.15.1(tailwindcss@3.4.1)
-  eslint-plugin-unused-imports:
-    specifier: ^3.1.0
-    version: 3.1.0(eslint@8.57.0)
   husky:
     specifier: ^9.0.11
     version: 9.0.11
@@ -3029,45 +3020,6 @@ packages:
       resolve: 2.0.0-next.5
       semver: 6.3.1
       string.prototype.matchall: 4.0.11
-    dev: true
-
-  /eslint-plugin-tailwindcss@3.15.1(tailwindcss@3.4.1):
-    resolution:
-      {
-        integrity: sha512-4RXRMIaMG07C2TBEW1k0VM4+dDazz1kxcZhkK4zirvmHGZTA4jnlSO2kq5mamuSPi+Wo17dh2SlC8IyFBuCd7Q==,
-      }
-    engines: { node: ">=12.13.0" }
-    peerDependencies:
-      tailwindcss: ^3.4.0
-    dependencies:
-      fast-glob: 3.3.2
-      postcss: 8.4.38
-      tailwindcss: 3.4.1
-    dev: true
-
-  /eslint-plugin-unused-imports@3.1.0(eslint@8.57.0):
-    resolution:
-      {
-        integrity: sha512-9l1YFCzXKkw1qtAru1RWUtG2EVDZY0a0eChKXcL+EZ5jitG7qxdctu4RnvhOJHv4xfmUf7h+JJPINlVpGhZMrw==,
-      }
-    engines: { node: ^12.22.0 || ^14.17.0 || >=16.0.0 }
-    peerDependencies:
-      "@typescript-eslint/eslint-plugin": 6 - 7
-      eslint: "8"
-    peerDependenciesMeta:
-      "@typescript-eslint/eslint-plugin":
-        optional: true
-    dependencies:
-      eslint: 8.57.0
-      eslint-rule-composer: 0.3.0
-    dev: true
-
-  /eslint-rule-composer@0.3.0:
-    resolution:
-      {
-        integrity: sha512-bt+Sh8CtDmn2OajxvNO+BX7Wn4CIWMpTRm3MaiKPCQcnnlm0CS2mhui6QaoeQugs+3Kj2ESKEEGJUdVafwhiCg==,
-      }
-    engines: { node: ">=4.0.0" }
     dev: true
 
   /eslint-scope@7.2.2:
