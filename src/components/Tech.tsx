@@ -4,9 +4,9 @@ import TechCard from "./TechCard"
 const Tech = () => {
   return (
     <section id="tech" className="mt-20">
-      <div className="flex flex-row flex-wrap justify-center  p-6 max-w-6xl mx-auto">
+      <div className="mx-auto flex max-w-6xl flex-row  flex-wrap justify-center p-6">
         {Technologies.map((technology) => (
-          <div className="w-20 h-20 m-5" key={technology.name}>
+          <div className="m-5 size-20" key={technology.name}>
             <TechCard name={technology.name} icon={technology.icon} />
           </div>
         ))}

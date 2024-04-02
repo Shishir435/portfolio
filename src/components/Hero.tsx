@@ -10,7 +10,7 @@ const Hero = () => {
         <div className="bubble-top"></div>
         <div className="bubble"></div>
       </div>
-      <div className="h-[200px] w-[200px] mx-auto rounded-full bg-gradient-to-r from-[#fae5fa]  to-[#dae6f9]">
+      <div className="mx-auto size-[200px] rounded-full bg-gradient-to-r from-[#fae5fa] to-[#dae6f9]">
         <Image
           src="/panda300circ.png"
           className=""
@@ -21,16 +21,16 @@ const Hero = () => {
           priority={true}
         ></Image>
       </div>
-      <div className="text-center mt-6">
-        <h1 className="font-custom text-5xl sm:text-7xl">Shishir Chaurasiya</h1>
+      <div className="mt-6 text-center">
+        <h1 className="text-5xl sm:text-7xl">Shishir Chaurasiya</h1>
       </div>
-      <div className="flex justify-center mt-8 gap-10 items-center">
+      <div className="mt-8 flex items-center justify-center gap-10">
         <Link
           href="https://github.com/Shishir435"
           title="Nextjs Developer"
           className={`${buttonVariants({
             variant: "secondary",
-          })} py-4  flex gap-4 px-4 `}
+          })} flex  gap-4 p-4 `}
         >
           <Image
             src="/nextjs30.png"
@@ -46,7 +46,7 @@ const Hero = () => {
           title="See My Github"
           className={`${buttonVariants({
             variant: "secondary",
-          })}  py-4 flex gap-4 px-4 `}
+          })}  flex gap-4 p-4 `}
         >
           <Image
             src="/github30.png"
@@ -58,7 +58,7 @@ const Hero = () => {
           Github
         </Link>
       </div>
-      <div className="text-center mt-8">
+      <div className="mt-8 text-center">
         <p>
           Crafting <span className="text-gradient">Aesthetic</span> Interfaces
           and <span className="text-gradient">Seamless</span> Full-stack
@@ -66,12 +66,12 @@ const Hero = () => {
         </p>
       </div>
 
-      <div className="text-center mt-10 mb-3 md:mt-14 ">
+      <div className="mb-3 mt-10 text-center md:mt-14 ">
         <Link
           href="#contact"
           className={`${buttonVariants({
             variant: "link",
-          })} bg-blue-600 px-[80px] py-6 !rounded-full text-white text-lg no-underline hover:no-underline`}
+          })} !rounded-full bg-blue-600 px-[80px] py-6 text-lg text-white no-underline hover:no-underline`}
         >
           Let&apos;s Talk <ArrowRight className="ml-2" />
         </Link>

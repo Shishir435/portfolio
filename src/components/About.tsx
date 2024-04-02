@@ -2,14 +2,15 @@ import Image from "next/image"
 import Link from "next/link"
 import { buttonVariants } from "./ui/button"
 import { AboutLinks } from "@/lib/content"
+import { cn } from "@/lib/utils"
 
 const About = () => {
   return (
-    <section id="about" className="mt-25 mx-3">
-      <div className="my-8  max-w-6xl mx-auto  rounded-3xl p-3 md:p-6 bg-gradient-to-r from-[#c0d8f2] to-[#ddeafa] ">
+    <section id="about" className="mx-3 mt-24">
+      <div className="mx-auto  my-8 max-w-6xl  rounded-3xl bg-gradient-to-r from-[#c0d8f2] to-[#ddeafa] p-3 md:p-6 ">
         <div className=" flex items-center justify-between gap-10">
-          <div className="w-full md:w-10/12 px-6 md:px-10 ">
-            <h2 className="font-bold text-4xl my-4">About Me</h2>
+          <div className="w-full px-6 md:w-10/12 md:px-10 ">
+            <h2 className="my-4 text-4xl font-bold">About Me</h2>
             <p className="my-6">
               Hello, I&apos;m <span className="text-gradient">Shishir</span>,
               and my passion lies in being a dedicated full-stack web developer.
@@ -20,7 +21,7 @@ const About = () => {
               collaborate to create outstanding digital experiences together.
             </p>
           </div>
-          <div className="hidden md:block w-2/5 ">
+          <div className="hidden w-2/5 md:block ">
             <Image
               src="/webp/shishir.webp"
               title="Shishir's Image"
@@ -32,13 +33,16 @@ const About = () => {
             ></Image>
           </div>
         </div>
-        <div className=" mt-8 mb-3 flex flex-wrap gap-5 ms:gap-0 justify-center sm:justify-between items-center px-6 md:px-10">
+        <div className=" ms:gap-0 mb-3 mt-8 flex flex-wrap items-center justify-center gap-5 px-6 sm:justify-between md:px-10">
           <div className="">
             <Link
               href="#contact"
-              className={`${buttonVariants({
-                variant: "link",
-              })} bg-blue-600 sm:px-[60px] md:px-[70px] py-6 !rounded-full text-white text-md no-underline hover:no-underline`}
+              className={cn(
+                buttonVariants({
+                  variant: "link",
+                }),
+                "text-base !rounded-full bg-blue-600 py-6 text-white no-underline hover:no-underline sm:px-[60px] md:px-[70px]"
+              )}
             >
               Let&apos;s Work Togather
             </Link>

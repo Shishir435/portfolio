@@ -41,13 +41,13 @@ const Contact = () => {
   }
 
   return (
-    <section id="contact" className="!mt-25 mb-20">
-      <div className="max-w-6xl mx-auto p-3 md:p-6">
-        <h2 className="font-bold text-4xl my-4">Contact Me</h2>
-        <div className="flex gap-4 w-full justify-between items-center">
-          <div className="hidden md:block w-1/2">
+    <section id="contact" className="!mt-24 mb-20">
+      <div className="mx-auto max-w-6xl p-3 md:p-6">
+        <h2 className="my-4 text-4xl font-bold">Contact Me</h2>
+        <div className="flex w-full items-center justify-between gap-4">
+          <div className="hidden w-1/2 md:block">
             <div className=" flex flex-col gap-10">
-              <p>Let's work Togather</p>
+              <p>Let&apos;s work Togather</p>
               <p>Alternatively you can email me at</p>
               <Link href="mailto:shishirchaurasiya435@gmail.com">
                 <p className="text-blue-950">shishirchaurasiya435@gmail.com</p>
@@ -58,7 +58,7 @@ const Contact = () => {
             <form
               ref={formRef}
               onSubmit={handleSubmit}
-              className="p-4 shadow-md  flex flex-col gap-8 rounded-md"
+              className="flex flex-col  gap-8 rounded-md p-4 shadow-md"
             >
               <div className="flex flex-col gap-4">
                 <Label htmlFor="name">Name</Label>
@@ -106,7 +106,7 @@ const Contact = () => {
             </form>
           </div>
         </div>
-        <div className="md:hidden text-center mt-10 ">
+        <div className="mt-10 text-center md:hidden ">
           <p>Alternatively you can email me at</p>
 
           <Link href="mailto:shishirchaurasiya435@gmail.com">

@@ -15,7 +15,7 @@ const MobileNav = () => {
   return (
     <>
       <div
-        className="md:hidden cursor-pointer"
+        className="cursor-pointer md:hidden"
         onClick={() => {
           setIsMenuOpen((prev) => !prev)
         }}
@@ -23,8 +23,8 @@ const MobileNav = () => {
         <Menu />
       </div>
       {isMenuOpen && (
-        <div className="w-32 fixed top-[80px] right-[80px] bg-slate-300 rounded-md p-4 z-40">
-          <div className="flex flex-col text-center w-full">
+        <div className="fixed right-[80px] top-[80px] z-40 w-32 rounded-md bg-slate-300 p-4">
+          <div className="flex w-full flex-col text-center">
             {MobileNavLinks.map(
               ({ linkName, linkTo }: { linkName: string; linkTo: string }) => (
                 <div onClick={() => closeMenu(linkName)} key={linkName}>
@@ -32,7 +32,7 @@ const MobileNav = () => {
                     href={linkTo}
                     className={`${buttonVariants({
                       variant: "ghost",
-                    })} capitalize w-full text-black `}
+                    })} w-full capitalize text-black `}
                   >
                     {linkName}
                   </Link>

@@ -3,7 +3,7 @@ import Image from "next/image"
 const TechCard = ({ name, icon }: { name: string; icon: string }) => {
   return (
     <>
-      <div className="flex justify-evenly items-center flex-col bg-tertiary rounded-lg p-2 h-20 w-20  cursor-pointer">
+      <div className="flex size-20 cursor-pointer flex-col items-center justify-evenly rounded-lg p-2">
         <Image
           src={icon}
           title={name}
@@ -12,7 +12,7 @@ const TechCard = ({ name, icon }: { name: string; icon: string }) => {
           style={{ height: 80, width: 80 }}
           alt={`${name}_logo`}
           // style={{height: "auto"}}
-          className="  object-contain h-auto w-auto"
+          className="  size-auto object-contain"
         />
       </div>
     </>

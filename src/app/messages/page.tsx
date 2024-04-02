@@ -13,7 +13,7 @@ import {
   TableRow,
 } from "@/components/ui/table"
 import axios from "axios"
-import { useRef, useState } from "react"
+import { ReactElement, useRef, useState } from "react"
 
 interface ContactMessage {
   _id: string
@@ -23,7 +23,7 @@ interface ContactMessage {
   resolve: boolean
 }
 
-const page = () => {
+const Page = () => {
   const [ContactMessages, setContactMessages] = useState<ContactMessage[]>([])
   const [isLoading, setIsLoading] = useState(false)
   const [isResolveing, setIsResolving] = useState(false)
@@ -98,7 +98,7 @@ const page = () => {
   }
 
   return IsAdmin ? (
-    <div className="flex flex-col justify-center items-center p-6 gap-10">
+    <div className="flex flex-col items-center justify-center gap-10 p-6">
       {/* Loading state overlay */}
       {isLoading && <Overlay />}
 
@@ -160,4 +160,4 @@ const page = () => {
   )
 }
 
-export default page
+export default Page

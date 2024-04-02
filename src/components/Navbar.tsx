@@ -7,8 +7,8 @@ import Circle from "./Circle"
 const Navbar = () => {
   return (
     <>
-      <div className="flex justify-between items-center px-5 md:px-15 lg:px-20 py-8 h-[125px] relative w-full overflow-hidden">
-        <div className="font-custom font-bold text-2xl ">
+      <div className="relative flex h-[125px] w-full items-center justify-between overflow-hidden px-5 py-8 md:px-14 lg:px-20">
+        <div className="text-2xl font-bold ">
           <Link href="/">
             <p className="text-gradient ">
               Shishir <span className="hidden sm:inline-block">Chaurasiya</span>

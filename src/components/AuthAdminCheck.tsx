@@ -14,6 +14,7 @@ import React, {
   ChangeEvent,
   Dispatch,
   SetStateAction,
+  useCallback,
   useEffect,
   useState,
 } from "react"
@@ -41,36 +42,39 @@ const AuthAdminCheck = ({
     setUsername("")
   }
 
-  async function handleAdminValidation(username: string, password: string) {
-    try {
-      setIsLoading(true)
-      const { data } = await axios.get("/api/portfolio/auth")
-      const { resp } = data
-      const admin = resp[0]
+  const handleAdminValidation = useCallback(
+    async (username: string, password: string) => {
+      try {
+        setIsLoading(true)
+        const { data } = await axios.get("/api/portfolio/auth")
+        const { resp } = data
+        const admin = resp[0]
 
-      if (admin.username === username && admin.password === password) {
-        setIsAdmin(true)
-        // Save admin data with expiration time to local storage
-        const expiration = Date.now() + 5 * 60 * 1000 // 5 minutes
-        localStorage.setItem(
-          "adminData",
-          JSON.stringify({ username, password, expiration })
-        )
-        setIsLoading(false)
-      } else {
+        if (admin.username === username && admin.password === password) {
+          setIsAdmin(true)
+          // Save admin data with expiration time to local storage
+          const expiration = Date.now() + 5 * 60 * 1000 // 5 minutes
+          localStorage.setItem(
+            "adminData",
+            JSON.stringify({ username, password, expiration })
+          )
+          setIsLoading(false)
+        } else {
+          setIsAdmin(false)
+          setIsLoading(false)
+          alert(
+            "This site is reserved for administrators only. Please refrain from accessing this page if you are not an admin."
+          )
+        }
+      } catch (error: any) {
+        console.error(error.message)
         setIsAdmin(false)
         setIsLoading(false)
-        alert(
-          "This site is reserved for administrators only. Please refrain from accessing this page if you are not an admin."
-        )
+        alert("Something went wrong while validating credentials")
       }
-    } catch (error: any) {
-      console.error(error.message)
-      setIsAdmin(false)
-      setIsLoading(false)
-      alert("Something went wrong while validating credentials")
-    }
-  }
+    },
+    [setIsAdmin]
+  )
 
   useEffect(() => {
     const storedAdminData = localStorage.getItem("adminData")
@@ -84,12 +88,12 @@ const AuthAdminCheck = ({
         localStorage.removeItem("adminData")
       }
     }
-  }, [])
+  }, [handleAdminValidation])
 
   return (
-    <div className="grid place-content-center min-h-screen gap-10 px-5">
-      <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl text-center">
-        "This site is exclusively for administrators."
+    <div className="grid min-h-screen place-content-center gap-10 px-5">
+      <h1 className="text-center text-xl sm:text-2xl md:text-3xl lg:text-4xl">
+        &quot;This site is exclusively for administrators.&quot;
       </h1>
       {isLoading && <Overlay />}
       <Dialog>
@@ -109,7 +113,7 @@ const AuthAdminCheck = ({
                 </Label>
                 <Input
                   id="username"
-                  className="col-span-3 relative"
+                  className="relative col-span-3"
                   type={usernameType}
                   value={username}
                   onChange={(e: ChangeEvent<HTMLInputElement>) =>
