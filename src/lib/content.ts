@@ -146,7 +146,50 @@ const Projects = [
     live_demo_link: "https://wandering-erin-nightingale.cyclic.app/login",
   },
   {
-    name: "YouTubeClone",
+    name: "LectureSummary",
+    description:
+      "A Chrome extension for video summarization, which elevated user comprehension across platforms like YouTube, Udemy, and Coursera, amassing over 120 regular users.",
+    tags: [
+      {
+        name: "Javascript",
+        color: "blue-text-gradient",
+      },
+      {
+        name: "Edenai",
+        color: "green-text-gradient",
+      },
+      {
+        name: "ChromeExtension",
+        color: "pink-text-gradient",
+      },
+    ],
+    source_code_link: "https://github.com/Shishir435/SpeedySynopsis",
+    live_demo_link:
+      "https://chromewebstore.google.com/detail/lecture-summary-youtube-u/mnejhfjohfbgdoadgjmfigodfagokeme?pli=1",
+  },
+  {
+    name: "Appointcraft",
+    description:
+      "A client and appointment management dashboard using React.js, Typescript, Redux, and Shadcn-ui, optimizing client interactions and scheduling efficiency.",
+    tags: [
+      {
+        name: "React",
+        color: "blue-text-gradient",
+      },
+      {
+        name: "Shadcn-ui",
+        color: "green-text-gradient",
+      },
+      {
+        name: "React-Calander",
+        color: "pink-text-gradient",
+      },
+    ],
+    source_code_link: "https://github.com/Shishir435/AppointCraft",
+    live_demo_link: "https://appointcraft.netlify.app",
+  },
+  {
+    name: "YouTubeUiClone",
     description:
       "Api-based clone application for searching and watching YouTube videos. It also has a sidebar with various video categories.",
     tags: [
@@ -186,48 +229,6 @@ const Projects = [
     ],
     source_code_link: "https://github.com/Shishir435/Google-Clone",
     live_demo_link: "https://googlezclone.netlify.app/",
-  },
-  {
-    name: "WeatherApp",
-    description:
-      "A web application allows users to search the weather of any city worldwide and see the forecast for the next seven days.",
-    tags: [
-      {
-        name: "react",
-        color: "blue-text-gradient",
-      },
-      {
-        name: "rapidApi",
-        color: "green-text-gradient",
-      },
-      {
-        name: "openWeatherApi",
-        color: "pink-text-gradient",
-      },
-    ],
-    source_code_link: "https://github.com/Shishir435/Weather-app/",
-    live_demo_link: "https://shishir-weather-app.netlify.app/",
-  },
-  {
-    name: "TodoList",
-    description:
-      "A todo list app that allows users to add and delete items. You can also create multiple lists and see all indexes in the all lists section.",
-    tags: [
-      {
-        name: "express",
-        color: "blue-text-gradient",
-      },
-      {
-        name: "mongodb",
-        color: "green-text-gradient",
-      },
-      {
-        name: "ejs",
-        color: "pink-text-gradient",
-      },
-    ],
-    source_code_link: "https://github.com/Shishir435/todo",
-    live_demo_link: "https://listsv1.onrender.com/",
   },
 ]
 export { AboutLinks, MobileNavLinks, DesktopNavLinks, Technologies, Projects }
