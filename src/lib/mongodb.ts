@@ -1,13 +1,7 @@
 import mongoose from "mongoose"
 
-let isConnected = false
-
 export async function connect() {
   try {
-    if (isConnected) {
-      console.log("MongoDB is already connected")
-      return
-    }
     await mongoose.connect(process.env.MONGODB_URL!, {
       // Other options can be added here if needed
     })
@@ -16,7 +10,6 @@ export async function connect() {
 
     connection.once("open", () => {
       console.log("MongoDB connected successfully")
-      isConnected = true
     })
 
     connection.on("error", (err) => {
@@ -28,6 +21,5 @@ export async function connect() {
   } catch (error) {
     console.log("Something went wrong while connecting to MongoDB")
     console.error(error)
-    isConnected = false
   }
 }

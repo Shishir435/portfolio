@@ -7,7 +7,7 @@ import { Textarea } from "@/components/ui/textarea"
 import { Button } from "./ui/button"
 import axios from "axios"
 import Link from "next/link"
-
+import { toast } from "sonner"
 const Contact = () => {
   const formRef = useRef(null)
   const [name, setName] = useState("")
@@ -32,8 +32,9 @@ const Contact = () => {
       setEmail("")
       setName("")
       setMessage("")
-      alert("successfully saved data")
+      toast.success("Message Sent")
     } catch (error) {
+      toast.error("Something went wrong")
       console.log("somethig went wrong", error)
     } finally {
       setLoading(false)
@@ -41,7 +42,7 @@ const Contact = () => {
   }
 
   return (
-    <section id="contact" className="!mt-24 mb-20">
+    <section id="contact" className="mb-20 mt-24">
       <div className="mx-auto max-w-6xl p-3 md:p-6">
         <h2 className="my-4 text-4xl font-bold">Contact Me</h2>
         <div className="flex w-full items-center justify-between gap-4">
@@ -54,11 +55,11 @@ const Contact = () => {
               </Link>
             </div>
           </div>
-          <div className="w-full md:w-1/2">
+          <div className="w-full shadow-md md:w-1/2">
             <form
               ref={formRef}
               onSubmit={handleSubmit}
-              className="flex flex-col  gap-8 rounded-md p-4 shadow-md"
+              className="flex flex-col gap-8 rounded-md p-4 shadow-md"
             >
               <div className="flex flex-col gap-4">
                 <Label htmlFor="name">Name</Label>

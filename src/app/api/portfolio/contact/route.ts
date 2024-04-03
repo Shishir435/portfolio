@@ -17,7 +17,7 @@ export async function POST(request: NextRequest) {
       message,
     })
     const savedmessage = await newContactMessage.save()
-    //    console.log(savedmessage);
+    //  console.log(savedmessage);
     return NextResponse.json({
       message: "user messag saved successfully",
       success: true,

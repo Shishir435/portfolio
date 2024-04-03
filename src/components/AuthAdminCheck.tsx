@@ -1,3 +1,4 @@
+"use client"
 import {
   Dialog,
   DialogContent,
@@ -20,6 +21,7 @@ import React, {
 } from "react"
 import Overlay from "./Overlay"
 import { Button } from "./ui/button"
+import { toast } from "sonner"
 const AuthAdminCheck = ({
   setIsAdmin,
 }: {
@@ -46,49 +48,28 @@ const AuthAdminCheck = ({
     async (username: string, password: string) => {
       try {
         setIsLoading(true)
-        const { data } = await axios.get("/api/portfolio/auth")
-        const { resp } = data
-        const admin = resp[0]
-
-        if (admin.username === username && admin.password === password) {
+        const response = await axios.post("/api/portfolio/auth", {
+          username,
+          password,
+        })
+        console.log(response)
+        if (response.data.isAuthenticated) {
           setIsAdmin(true)
-          // Save admin data with expiration time to local storage
-          const expiration = Date.now() + 5 * 60 * 1000 // 5 minutes
-          localStorage.setItem(
-            "adminData",
-            JSON.stringify({ username, password, expiration })
-          )
-          setIsLoading(false)
+          toast.success("Welcome Admin")
         } else {
+          toast.error("You are not an Admin")
           setIsAdmin(false)
-          setIsLoading(false)
-          alert(
-            "This site is reserved for administrators only. Please refrain from accessing this page if you are not an admin."
-          )
         }
       } catch (error: any) {
         console.error(error.message)
         setIsAdmin(false)
+        toast.error(error.message)
+      } finally {
         setIsLoading(false)
-        alert("Something went wrong while validating credentials")
       }
     },
     [setIsAdmin]
   )
-
-  useEffect(() => {
-    const storedAdminData = localStorage.getItem("adminData")
-    if (storedAdminData) {
-      const adminData = JSON.parse(storedAdminData)
-      const { username, password, expiration } = adminData
-
-      if (expiration > Date.now()) {
-        handleAdminValidation(username, password)
-      } else {
-        localStorage.removeItem("adminData")
-      }
-    }
-  }, [handleAdminValidation])
 
   return (
     <div className="grid min-h-screen place-content-center gap-10 px-5">

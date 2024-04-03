@@ -1,7 +1,18 @@
-import React from "react"
+"use client"
+import AuthAdminCheck from "@/components/AuthAdminCheck"
+import React, { useState } from "react"
 
 const AdminPage = () => {
-  return <div>AdminPage</div>
+  const [isAdmin, setIsAdmin] = useState(false)
+  return (
+    <div>
+      {isAdmin ? (
+        <div>You are admin</div>
+      ) : (
+        <AuthAdminCheck setIsAdmin={setIsAdmin} />
+      )}
+    </div>
+  )
 }
 
 export default AdminPage
