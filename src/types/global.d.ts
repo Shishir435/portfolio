@@ -24,4 +24,9 @@ declare global {
       }
     }
   }
+
+  interface BlogPost {
+    filename: string
+    content: string
+  }
 }
