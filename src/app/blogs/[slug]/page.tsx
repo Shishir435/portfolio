@@ -9,7 +9,7 @@ import { useEffect, useState } from "react"
 import { remark } from "remark"
 import html from "remark-html"
 
-export const fetchMarkdownFile = async (slug: string): Promise<BlogPost> => {
+const fetchMarkdownFile = async (slug: string): Promise<BlogPost> => {
   const response = await axios.get<BlogPost>(`/api/blogs/${slug}`)
   return response.data
 }
