@@ -27,7 +27,9 @@ const ProjectCard = ({
               target="_blank"
               title="Click to see demo"
             >
-              <h3 className="text-[24px] font-bold text-black">{name}</h3>
+              <h3 className="text-[24px] font-bold capitalize text-black">
+                {name}
+              </h3>
             </Link>
           </div>
           <div className=" inset-0 m-3 flex gap-5 ">
