@@ -9,8 +9,8 @@ import { useEffect, useState } from "react"
 import { remark } from "remark"
 import html from "remark-html"
 
-export const fetchMarkdownFiles = async (): Promise<BlogPost[]> => {
-  const response = await axios.get<BlogPost[]>("/api/blogs/fetch-markdown")
+export const fetchMarkdownFile = async (slug: string): Promise<BlogPost> => {
+  const response = await axios.get<BlogPost>(`/api/blogs/${slug}`)
   return response.data
 }
 
@@ -18,29 +18,25 @@ export default function BlogPost() {
   const router = usePathname()
   const slug = router.split("/")[2]
   const { data, isLoading, error } = useQuery({
-    queryKey: ["blogPosts"],
-    queryFn: fetchMarkdownFiles,
+    queryKey: ["blogPost", slug],
+    queryFn: () => fetchMarkdownFile(slug),
   })
+  console.log(data)
   const [pageTitle, setPageTitle] = useState(slug)
 
   useEffect(() => {
     if (data) {
-      const file = data.find((post: any) => post.filename === `${slug}.md`)
-      if (file) {
-        const { data: frontMatter } = matter(file.content)
-        setPageTitle(frontMatter.title || slug)
-      }
+      const { data: frontMatter } = matter(data.content)
+      setPageTitle(frontMatter.title || slug)
     }
   }, [data, slug])
 
   if (isLoading) return <p>Loading post...</p>
   if (error) return <p>Error loading post</p>
 
-  const file = data?.find((post: any) => post.filename === `${slug}.md`)
+  if (!data) return <p>Post not found</p>
 
-  if (!file) return <p>Post not found</p>
-
-  const { content } = matter(file.content)
+  const { content } = matter(data.content)
   const processedContent = remark().use(html).processSync(content).toString()
 
   return (
