@@ -9,8 +9,8 @@ import { useEffect, useState } from "react"
 import { remark } from "remark"
 import html from "remark-html"
 
-const fetchMarkdownFiles = async () => {
-  const response = await axios.get("/api/blogs/fetch-markdown")
+export const fetchMarkdownFiles = async (): Promise<BlogPost[]> => {
+  const response = await axios.get<BlogPost[]>("/api/blogs/fetch-markdown")
   return response.data
 }
 
@@ -36,7 +36,7 @@ export default function BlogPost() {
   if (isLoading) return <p>Loading post...</p>
   if (error) return <p>Error loading post</p>
 
-  const file = data.find((post: any) => post.filename === `${slug}.md`)
+  const file = data?.find((post: any) => post.filename === `${slug}.md`)
 
   if (!file) return <p>Post not found</p>
 
