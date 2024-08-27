@@ -58,8 +58,8 @@ const DesktopNavLinks = [
     linkTo: "#tech",
   },
   {
-    linkName: "blog",
-    linkTo: "/blog",
+    linkName: "blogs",
+    linkTo: "/blogs",
   },
 ]
 
