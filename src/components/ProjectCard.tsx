@@ -1,14 +1,11 @@
+import { RepositoryTagsBackgroundColors } from "@/lib/constants"
+import { cn } from "@/lib/utils"
 import Image from "next/image"
 import Link from "next/link"
-import { v4 as uuid } from "uuid"
-interface Tag {
-  name: string
-  color: string
-}
 interface ProjectCard {
   name: string
   description: string
-  tags: Tag[]
+  tags: RepositoryTopic[]
   source_code_link: string
   live_demo_link: string
 }
@@ -68,19 +65,31 @@ const ProjectCard = ({
             </div>
           </div>
         </div>
-        <Link href={live_demo_link} target="_blank" title="Click to see demo">
-          <p className="mt-2 text-[14px]">{description}</p>
-        </Link>
+        <p className="mt-2 text-[14px]">{description}</p>
       </div>
-      <Link href={live_demo_link} target="_blank" title="Click to see demo">
-        <div className="my-4 flex flex-wrap gap-2 px-4">
-          {tags.map((tag) => (
-            <p key={uuid()} className={`text-[14px] ${tag.color}`}>
-              #{tag.name}
-            </p>
-          ))}
-        </div>
-      </Link>
+      <div className="my-4 flex flex-wrap gap-2 px-4">
+        {tags.length > 0 ? (
+          tags.map((tag, index) => {
+            const backgroundColor =
+              RepositoryTagsBackgroundColors[
+                index % RepositoryTagsBackgroundColors.length
+              ]
+            return (
+              <span
+                key={`${tag.topic.name}-${index}`}
+                className={cn(
+                  "text-sm px-1.5 py-0.5 rounded-full",
+                  backgroundColor
+                )}
+              >
+                {tag.topic.name || ""}
+              </span>
+            )
+          })
+        ) : (
+          <p>No Tags Available</p>
+        )}
+      </div>
     </div>
   )
 }
