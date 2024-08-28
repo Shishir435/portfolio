@@ -1,6 +1,6 @@
 import type { Config } from "tailwindcss";
 import tailwindcssAnimate from "tailwindcss-animate";
-
+import tailwindTypography from "@tailwindcss/typography";
 const config = {
   darkMode: ["class"],
   content: [
@@ -12,10 +12,14 @@ const config = {
   ],
   prefix: "",
   theme: {
+    fontFamily: {
+      sans: ["Roboto", "Poppins", "system-ui", "sans"],
+    },
     container: {
       center: true,
       padding: "2rem",
       screens: {
+        xs: "500px",
         "2xl": "1400px",
       },
     },
@@ -76,7 +80,7 @@ const config = {
       },
     },
   },
-  plugins: [tailwindcssAnimate],
+  plugins: [tailwindcssAnimate, tailwindTypography],
 } satisfies Config;
 
 export default config;
