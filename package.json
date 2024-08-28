@@ -8,13 +8,15 @@
     "dev": "turbo dev",
     "lint": "turbo lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
-    "ui:add": "pnpm --filter @repo/ui ui:add"
+    "ui:add": "pnpm --filter @repo/ui ui:add",
+    "prepare": "husky install"
   },
   "devDependencies": {
     "@repo/eslint-config": "workspace:*",
     "@repo/typescript-config": "workspace:*",
     "prettier": "^3.3.2",
-    "turbo": "2.0.6"
+    "turbo": "2.0.6",
+    "husky": "^8.0.0"
   },
   "packageManager": "pnpm@8.9.0",
   "engines": {
