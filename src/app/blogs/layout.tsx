@@ -1,6 +1,7 @@
-import { usePathname } from "next/navigation"
-import React from "react"
-import type { Metadata } from "next"
+import { Metadata } from "next"
+import { ThemeProvider } from "../providers/ThemeProvider"
+import ThemeButton from "@/components/ThemeButton"
+
 export const metadata: Metadata = {
   title: {
     template: "%s | Blog",
@@ -8,12 +9,27 @@ export const metadata: Metadata = {
   },
   description: "Shishir's Blog",
 }
-function Layout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode
+}) {
   return (
     <>
-      <body>{children}</body>
+      <html lang="en" suppressHydrationWarning>
+        <head />
+        <body className="relative">
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+          >
+            <ThemeButton className="absolute left-5 top-5" />
+            {children}
+          </ThemeProvider>
+        </body>
+      </html>
     </>
   )
 }
-
-export default Layout
