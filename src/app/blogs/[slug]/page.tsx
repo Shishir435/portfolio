@@ -1,27 +1,26 @@
 "use client"
-import MarkdownStyles from "@/components/blog/MarkdownContainer"
+import MarkdownPreview from "@/components/blog/MarkdownPreview"
 import NextHead from "@/components/NextHead"
+import BlogSkeleton from "@/components/skeletons/BlogSkeleton"
+import ErrorSkeleton from "@/components/skeletons/ErrorBlogSkeleton"
 import { useQuery } from "@tanstack/react-query"
 import axios from "axios"
 import matter from "gray-matter"
 import { usePathname } from "next/navigation"
 import { useEffect, useState } from "react"
-import { remark } from "remark"
-import html from "remark-html"
 
 const fetchMarkdownFile = async (slug: string): Promise<BlogPost> => {
-  const response = await axios.get<BlogPost>(`/api/blogs/${slug}`)
+  const response = await axios.get(`/api/blogs/${slug}`)
   return response.data
 }
 
 export default function BlogPost() {
   const router = usePathname()
-  const slug = router.split("/")[2]
+  const slug = router.split("/")[router.split("/").length - 1]
   const { data, isLoading, error } = useQuery({
     queryKey: ["blogPost", slug],
     queryFn: () => fetchMarkdownFile(slug),
   })
-  console.log(data)
   const [pageTitle, setPageTitle] = useState(slug)
 
   useEffect(() => {
@@ -30,23 +29,18 @@ export default function BlogPost() {
       setPageTitle(frontMatter.title || slug)
     }
   }, [data, slug])
-
-  if (isLoading) return <p>Loading post...</p>
-  if (error) return <p>Error loading post</p>
-
-  if (!data) return <p>Post not found</p>
-
-  const { content } = matter(data.content)
-  const processedContent = remark().use(html).processSync(content).toString()
-
+  const { content } = matter(data?.content || "")
   return (
     <>
-      <NextHead pageTitle={pageTitle} />
-      <article className="p-4">
+      <NextHead pageTitle={slug || "blog"} />
+      <article className="flex flex-col items-center justify-center p-4">
         <h1 className="text-center text-4xl font-bold">{pageTitle || slug}</h1>
-        <MarkdownStyles>
-          <div dangerouslySetInnerHTML={{ __html: processedContent }} />
-        </MarkdownStyles>
+        <main className="flex max-w-5xl flex-col items-center justify-center">
+          {!data && <BlogSkeleton />}
+          {data && <MarkdownPreview content={content} />}
+          {isLoading && <BlogSkeleton />}
+          {error && <ErrorSkeleton />}
+        </main>
       </article>
     </>
   )
