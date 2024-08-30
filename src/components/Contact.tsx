@@ -1,13 +1,13 @@
 "use client"
 
-import React, { ChangeEvent, FormEvent, useRef, useState } from "react"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
-import { Button } from "./ui/button"
 import axios from "axios"
 import Link from "next/link"
+import React, { FormEvent, useRef, useState } from "react"
 import { toast } from "sonner"
+import { Button } from "./ui/button"
 const Contact = () => {
   const formRef = useRef(null)
   const [name, setName] = useState("")
@@ -27,15 +27,15 @@ const Contact = () => {
 
     try {
       setLoading(true)
-      const resposne = await axios.post("/api/portfolio/contact", contactData)
-      console.log("successfully saved contact message", resposne)
-      setEmail("")
-      setName("")
-      setMessage("")
-      toast.success("Message Sent")
+      const response = await axios.post("/api/portfolio/contact", contactData)
+      if (response.status === 200) {
+        setEmail("")
+        setName("")
+        setMessage("")
+        toast.success("Message Sent")
+      }
     } catch (error) {
       toast.error("Something went wrong")
-      console.log("somethig went wrong", error)
     } finally {
       setLoading(false)
     }
@@ -48,7 +48,7 @@ const Contact = () => {
         <div className="flex w-full items-center justify-between gap-4">
           <div className="hidden w-1/2 md:block">
             <div className=" flex flex-col gap-10">
-              <p>Let&apos;s work Togather</p>
+              <p>Let&apos;s work Together</p>
               <p>Alternatively you can email me at</p>
               <Link href="mailto:shishirchaurasiya435@gmail.com">
                 <p className="text-blue-950">shishirchaurasiya435@gmail.com</p>
@@ -103,13 +103,14 @@ const Contact = () => {
                   required
                 />
               </div>
-              <Button type="submit">{loading ? "Sending..." : "Send"}</Button>
+              <Button type="submit" disabled={loading}>
+                {loading ? "Sending..." : "Send"}
+              </Button>
             </form>
           </div>
         </div>
         <div className="mt-10 text-center md:hidden ">
           <p>Alternatively you can email me at</p>
-
           <Link href="mailto:shishirchaurasiya435@gmail.com">
             <p className="text-blue-950">shishirchaurasiya435@gmail.com</p>
           </Link>

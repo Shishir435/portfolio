@@ -1,5 +1,5 @@
 import { Metadata } from "next"
-import { ThemeProvider } from "../providers/ThemeProvider"
+import { ThemeProvider } from "../../providers/ThemeProvider"
 import ThemeButton from "@/components/ThemeButton"
 
 export const metadata: Metadata = {

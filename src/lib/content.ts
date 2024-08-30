@@ -36,7 +36,7 @@ const MobileNavLinks = [
   },
   {
     linkName: "blog",
-    linkTo: "/blog",
+    linkTo: "/blogs",
   },
   {
     linkName: "contact me",
