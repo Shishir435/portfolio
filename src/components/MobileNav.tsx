@@ -1,17 +1,16 @@
 "use client"
 
 import { Menu } from "lucide-react"
-import { useState } from "react"
+import { useRef, useState } from "react"
 import { buttonVariants } from "./ui/button"
 import Link from "next/link"
 import { MobileNavLinks } from "@/lib/content"
+import { useClickAway } from "react-use"
 
 const MobileNav = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
-  function closeMenu(linkName: string) {
-    console.log(linkName)
-    setIsMenuOpen(false)
-  }
+  const divRef = useRef<HTMLDivElement>(null)
+  useClickAway(divRef, () => setIsMenuOpen(false))
   return (
     <>
       <div
@@ -23,11 +22,14 @@ const MobileNav = () => {
         <Menu />
       </div>
       {isMenuOpen && (
-        <div className="fixed right-[80px] top-[80px] z-40 w-32 rounded-md bg-slate-300 p-4">
+        <div
+          ref={divRef}
+          className="fixed right-[80px] top-[80px] z-40 w-32 rounded-md bg-slate-200 p-4"
+        >
           <div className="flex w-full flex-col text-center">
             {MobileNavLinks.map(
               ({ linkName, linkTo }: { linkName: string; linkTo: string }) => (
-                <div onClick={() => closeMenu(linkName)} key={linkName}>
+                <div onClick={() => setIsMenuOpen(false)} key={linkName}>
                   <Link
                     href={linkTo}
                     className={`${buttonVariants({
@@ -47,38 +49,3 @@ const MobileNav = () => {
 }
 
 export default MobileNav
-
-// <div onClick={closeMenu}>
-//                 <Link
-//                   href="#about"
-//                   className={buttonVariants({ variant: "ghost" })}
-//                 >
-//                   About
-//                 </Link>
-//               </div>
-//               <div onClick={closeMenu}>
-//                 <Link
-//                   href="#tech"
-//                   className={buttonVariants({ variant: "ghost" })}
-//                 >
-//                   Tech
-//                 </Link>
-//               </div>
-//               <div onClick={closeMenu}>
-//                 <Link
-//                   href="/blog"
-//                   className={buttonVariants({ variant: "ghost" })}
-//                 >
-//                   Blog
-//                 </Link>
-//               </div>
-//               <div onClick={closeMenu}>
-//                 <Link
-//                   href="#contact"
-//                   className={`${buttonVariants({
-//                     variant: "ghost",
-//                   })} `}
-//                 >
-//                   Contact Me
-//                 </Link>
-//               </div>
