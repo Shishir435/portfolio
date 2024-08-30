@@ -15,7 +15,7 @@ const Navbar = () => {
             </p>
           </Link>
         </div>
-        {/* cicles */}
+        {/* circles */}
         <Circle />
         {/* Desktop navigation */}
         <div className="hidden md:block">
@@ -46,7 +46,7 @@ const Navbar = () => {
             </Link>
           </div>
         </div>
-        {/* Mobile naigation */}
+        {/* Mobile navigation */}
         <MobileNav />
       </div>
     </>

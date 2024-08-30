@@ -44,7 +44,7 @@ const About = () => {
                 "text-base !rounded-full bg-blue-600 py-6 text-white no-underline hover:no-underline sm:px-[60px] md:px-[70px]"
               )}
             >
-              Let&apos;s Work Togather
+              Let&apos;s Work Together
             </Link>
           </div>
           <div className="flex gap-3 md:-translate-x-6">
