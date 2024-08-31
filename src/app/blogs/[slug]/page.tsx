@@ -1,5 +1,5 @@
 "use client"
-import MarkdownPreview from "@/components/blog/MarkdownPreview"
+import ReactMarkdownPreview from "@/components/blog/ReactMarkdownPreview"
 import NextHead from "@/components/NextHead"
 import BlogSkeleton from "@/components/skeletons/BlogSkeleton"
 import ErrorSkeleton from "@/components/skeletons/ErrorBlogSkeleton"
@@ -35,9 +35,9 @@ export default function BlogPost() {
       <NextHead pageTitle={slug || "blog"} />
       <article className="flex flex-col items-center justify-center p-4">
         <h1 className="text-center text-4xl font-bold">{pageTitle || slug}</h1>
-        <main className="flex max-w-5xl flex-col items-center justify-center">
+        <main className="flex w-full max-w-6xl flex-col items-center justify-center">
           {!data && <BlogSkeleton />}
-          {data && <MarkdownPreview content={content} />}
+          {data && <ReactMarkdownPreview content={content} />}
           {isLoading && <BlogSkeleton />}
           {error && <ErrorSkeleton />}
         </main>
