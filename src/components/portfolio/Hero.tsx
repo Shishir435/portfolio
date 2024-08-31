@@ -1,7 +1,7 @@
 import { ArrowRight } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
-import { buttonVariants } from "./ui/button"
+import { buttonVariants } from "../ui/button"
 
 const Hero = () => {
   return (

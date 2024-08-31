@@ -1,7 +1,7 @@
 "use client"
 
-import AuthAdminCheck from "@/components/AuthAdminCheck"
-import Overlay from "@/components/Overlay"
+import AuthAdminCheck from "@/components/portfolio/AuthAdminCheck"
+import Overlay from "@/components/portfolio/Overlay"
 import { Button } from "@/components/ui/button"
 import { Checkbox } from "@/components/ui/checkbox"
 import {

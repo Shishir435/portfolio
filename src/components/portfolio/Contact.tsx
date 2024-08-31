@@ -7,7 +7,7 @@ import axios from "axios"
 import Link from "next/link"
 import React, { FormEvent, useRef, useState } from "react"
 import { toast } from "sonner"
-import { Button } from "./ui/button"
+import { Button } from "../ui/button"
 const Contact = () => {
   const formRef = useRef(null)
   const [name, setName] = useState("")

@@ -1,5 +1,5 @@
 "use client"
-import AuthAdminCheck from "@/components/AuthAdminCheck"
+import AuthAdminCheck from "@/components/portfolio/AuthAdminCheck"
 import React, { useState } from "react"
 
 const AdminPage = () => {

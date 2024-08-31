@@ -20,7 +20,7 @@ import React, {
   useState,
 } from "react"
 import Overlay from "./Overlay"
-import { Button } from "./ui/button"
+import { Button } from "../ui/button"
 import { toast } from "sonner"
 const AuthAdminCheck = ({
   setIsAdmin,

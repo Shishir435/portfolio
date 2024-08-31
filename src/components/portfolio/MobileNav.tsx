@@ -2,7 +2,7 @@
 
 import { Menu } from "lucide-react"
 import { useRef, useState } from "react"
-import { buttonVariants } from "./ui/button"
+import { buttonVariants } from "../ui/button"
 import Link from "next/link"
 import { MobileNavLinks } from "@/lib/content"
 import { useClickAway } from "react-use"

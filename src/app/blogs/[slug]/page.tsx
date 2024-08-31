@@ -1,8 +1,8 @@
 "use client"
 import ReactMarkdownPreview from "@/components/blog/ReactMarkdownPreview"
-import NextHead from "@/components/NextHead"
-import BlogSkeleton from "@/components/skeletons/BlogSkeleton"
-import ErrorSkeleton from "@/components/skeletons/ErrorBlogSkeleton"
+import BlogSkeleton from "@/components/blog/skeletons/BlogSkeleton"
+import ErrorSkeleton from "@/components/blog/skeletons/ErrorBlogSkeleton"
+
 import { useQuery } from "@tanstack/react-query"
 import axios from "axios"
 import matter from "gray-matter"
@@ -31,17 +31,14 @@ export default function BlogPost() {
   }, [data, slug])
   const { content } = matter(data?.content || "")
   return (
-    <>
-      <NextHead pageTitle={slug || "blog"} />
-      <article className="flex flex-col items-center justify-center p-4">
-        <h1 className="text-center text-4xl font-bold">{pageTitle || slug}</h1>
-        <main className="flex w-full max-w-6xl flex-col items-center justify-center">
-          {!data && <BlogSkeleton />}
-          {data && <ReactMarkdownPreview content={content} />}
-          {isLoading && <BlogSkeleton />}
-          {error && <ErrorSkeleton />}
-        </main>
-      </article>
-    </>
+    <article className="flex flex-col items-center justify-center p-4">
+      <h1 className="text-center text-4xl font-bold">{pageTitle || slug}</h1>
+      <main className="flex w-full max-w-6xl flex-col items-center justify-center">
+        {!data && <BlogSkeleton />}
+        {data && <ReactMarkdownPreview content={content} />}
+        {isLoading && <BlogSkeleton />}
+        {error && <ErrorSkeleton />}
+      </main>
+    </article>
   )
 }

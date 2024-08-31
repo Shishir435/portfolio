@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { buttonVariants } from "./ui/button"
+import { buttonVariants } from "../ui/button"
 import MobileNav from "./MobileNav"
 import { DesktopNavLinks } from "@/lib/content"
 import Circle from "./Circle"

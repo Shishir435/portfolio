@@ -1,6 +1,6 @@
 import { Metadata } from "next"
 import { ThemeProvider } from "../../providers/ThemeProvider"
-import ThemeButton from "@/components/ThemeButton"
+import ThemeButton from "@/components/blog/ThemeButton"
 
 export const metadata: Metadata = {
   title: {
