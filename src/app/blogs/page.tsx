@@ -17,9 +17,6 @@ export default function BlogPage() {
     queryFn: fetchMarkdownFiles,
   })
 
-  if (isLoading) return <p>Loading blogs...</p>
-  if (error) return <p>Error loading blogs</p>
-
   return (
     <>
       <NextHead pageTitle="Blogs Page" />
@@ -30,6 +27,8 @@ export default function BlogPage() {
             "mt-6 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3"
           }
         >
+          {isLoading && <p>Loading blogs...</p>}
+          {error && <p>Error loading blogs</p>}
           {data?.map((post) => {
             const slug = post.filename.replace(/\.md$/, "")
             const { content, data: frontMatter } = matter(post.content)
