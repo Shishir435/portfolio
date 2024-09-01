@@ -1,6 +1,6 @@
+import Navbar from "@/components/blog/Navbar"
 import { Metadata } from "next"
 import { ThemeProvider } from "../../providers/ThemeProvider"
-import ThemeButton from "@/components/blog/ThemeButton"
 
 export const metadata: Metadata = {
   title: {
@@ -18,14 +18,14 @@ export default function RootLayout({
     <>
       <html lang="en" suppressHydrationWarning>
         <head />
-        <body className="relative">
+        <body>
           <ThemeProvider
             attribute="class"
             defaultTheme="system"
             enableSystem
             disableTransitionOnChange
           >
-            <ThemeButton className="absolute left-5 top-5" />
+            <Navbar />
             {children}
           </ThemeProvider>
         </body>

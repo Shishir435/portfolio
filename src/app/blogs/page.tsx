@@ -1,4 +1,5 @@
 "use client"
+import BlogsSkeleton from "@/components/blog/skeletons/BlogsSkeleton"
 import { useQuery } from "@tanstack/react-query"
 import axios from "axios"
 import matter from "gray-matter"
@@ -18,11 +19,13 @@ export default function BlogPage() {
 
   return (
     <section className="container mx-auto mt-10">
-      <h1 className="text-4xl font-bold">Blog</h1>
       <div
         className={"mt-6 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3"}
       >
-        {isLoading && <p>Loading blogs...</p>}
+        {isLoading &&
+          Array.from({ length: 12 }).map((_, index) => (
+            <BlogsSkeleton key={index} />
+          ))}
         {error && <p>Error loading blogs</p>}
         {data?.map((post) => {
           const slug = post.filename.replace(/\.md$/, "")
@@ -37,7 +40,7 @@ export default function BlogPage() {
                 <h2 className="text-xl font-semibold">
                   {frontMatter.title || slug}
                 </h2>
-                <p className="text-gray-700">{snippet}</p>
+                <p className="mt-2">{snippet}</p>
               </p>
             </Link>
           )
