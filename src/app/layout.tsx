@@ -20,6 +20,7 @@ export default function RootLayout({
   return (
     <ReactQueryClientProvider>
       <html lang="en" suppressHydrationWarning>
+        <link rel="icon" href="/favicon.svg" />
         <body className={`${inter.className}`}>
           {children}
           <Analytics />
