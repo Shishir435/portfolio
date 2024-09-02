@@ -8,7 +8,7 @@ import { remark } from "remark"
 import strip from "strip-markdown"
 
 const fetchMarkdownFiles = async (): Promise<BlogPost[]> => {
-  const response = await axios.get<BlogPost[]>("/api/blogs/fetch-markdown")
+  const response = await axios.get<BlogPost[]>("/api/blog/fetch-markdown")
   return response.data
 }
 export default function BlogPage() {
@@ -35,7 +35,7 @@ export default function BlogPage() {
             "..."
 
           return (
-            <Link key={slug} href={`/blogs/${slug}`} passHref>
+            <Link key={slug} href={`/blog/${slug}`} passHref>
               <p className="rounded border p-4 shadow">
                 <h2 className="text-xl font-semibold">
                   {frontMatter.title || slug}

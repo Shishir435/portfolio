@@ -10,7 +10,7 @@ import matter from "gray-matter"
 import { usePathname } from "next/navigation"
 
 const fetchMarkdownFile = async (slug: string): Promise<BlogPost> => {
-  const response = await axios.get(`/api/blogs/${slug}`)
+  const response = await axios.get(`/api/blog/${slug}`)
   return response.data
 }
 

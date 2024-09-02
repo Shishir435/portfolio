@@ -36,7 +36,7 @@ const MobileNavLinks = [
   },
   {
     linkName: "blog",
-    linkTo: "/blogs",
+    linkTo: "/blog",
   },
   {
     linkName: "contact me",
@@ -58,8 +58,8 @@ const DesktopNavLinks = [
     linkTo: "#tech",
   },
   {
-    linkName: "blogs",
-    linkTo: "/blogs",
+    linkName: "blog",
+    linkTo: "/blog",
   },
 ]
 
