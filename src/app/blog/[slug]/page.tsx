@@ -7,6 +7,8 @@ import NextHead from "@/components/NextHead"
 import { useQuery } from "@tanstack/react-query"
 import axios from "axios"
 import matter from "gray-matter"
+import { ArrowLeft } from "lucide-react"
+import Link from "next/link"
 import { usePathname } from "next/navigation"
 
 const fetchMarkdownFile = async (slug: string): Promise<BlogPost> => {
@@ -26,8 +28,17 @@ export default function BlogPost() {
     <>
       <NextHead title={slug || "blog"} />
       <article className="flex flex-col items-center justify-center p-4">
-        <h1 className="text-center text-2xl font-bold md:text-4xl">{slug}</h1>
-        <main className="mt-6 flex w-full max-w-6xl flex-col items-center justify-center">
+        <main className="flex w-full max-w-6xl flex-col items-center justify-center">
+          <div className="my-6 flex w-full items-center gap-2">
+            <div className="w-1/12 cursor-pointer px-2">
+              <Link href="/blog">
+                <ArrowLeft />
+              </Link>
+            </div>
+            <h1 className=" w-10/12 text-center text-2xl font-bold md:text-4xl">
+              {slug}
+            </h1>
+          </div>
           {isLoading && <BlogSkeleton />}
           {error && <ErrorSkeleton />}
           {data && <ReactMarkdownPreview content={content} />}
