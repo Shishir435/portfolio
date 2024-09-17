@@ -7,7 +7,7 @@ export async function GET() {
   const query = `
     query {
       user(login: "Shishir435") {
-        pinnedItems(first: 6) {
+        pinnedItems(first: 3) {
           nodes {
             ... on Repository {
               name
