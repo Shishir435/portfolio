@@ -1,5 +1,6 @@
 import About from "@/components/portfolio/About"
 import Contact from "@/components/portfolio/Contact"
+import Experience from "@/components/portfolio/Experience"
 import Hero from "@/components/portfolio/Hero"
 import Navbar from "@/components/portfolio/Navbar"
 import PinnedRepo from "@/components/portfolio/PinnedRepo"
@@ -14,6 +15,7 @@ export default function Home() {
       </div>
       <About />
       <Tech />
+      <Experience />
       <PinnedRepo />
       <Contact />
     </div>

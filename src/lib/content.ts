@@ -231,4 +231,39 @@ const Projects = [
     live_demo_link: "https://googlezclone.netlify.app/",
   },
 ]
-export { AboutLinks, MobileNavLinks, DesktopNavLinks, Technologies, Projects }
+
+const Experiences = [
+  {
+    designation: "Blockchain and Software Developer",
+    company: "Doge Capital Fzco",
+    timeline: "May ‘24 - Jul ‘24",
+    description: `Increased user retention by 25% through wallet integration and optimized game functionality. Implemented Ethereum, Bitcoin, and Solana wallet integration`,
+  },
+  {
+    designation: "FrontEnd Developer",
+    company: "Qliclabs Technology",
+    timeline: "May ‘23 - Sep ‘23",
+    description: `Boosted user retention by 30% by implementing dynamic product search and advanced filtering. Optimized website performance and revamped e-commerce platform UI.`,
+  },
+  {
+    designation: "Software Engineer",
+    company: "Unmodal Research Inc.",
+    timeline: "Jun ‘23 - July ‘23",
+    description: `Optimized AI integration with GPT-3.5 Turbo, cutting response time by 35%. Developed AI-powered text generation & manipulation app. Integrated OpenAI's GPT-3.5 Turbo and DALL-E APIs.`,
+  },
+  {
+    designation: "Freelancer",
+    company: "AN3O Technologies",
+    timeline: "July ‘24- Aug ‘24",
+    description: `Automated web scraping for 50+ websites, saving 20+ hours weekly. Developed a custom web scraping script using Scrapy and BeautifulSoup.`,
+  },
+]
+
+export {
+  AboutLinks,
+  MobileNavLinks,
+  DesktopNavLinks,
+  Technologies,
+  Projects,
+  Experiences,
+}
