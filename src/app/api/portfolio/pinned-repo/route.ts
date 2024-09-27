@@ -1,8 +1,8 @@
-import axios from "axios"
+import axios from "axios";
 
 export async function GET() {
-  const endpoint = "https://api.github.com/graphql"
-  const token = process.env.GITHUB_ACCESS_TOKEN
+  const endpoint = "https://api.github.com/graphql";
+  const token = process.env.GITHUB_ACCESS_TOKEN;
 
   const query = `
     query {
@@ -26,7 +26,7 @@ export async function GET() {
         }
       }
     }
-  `
+  `;
 
   try {
     const response = await axios.post<PinnedRepositoriesResponse>(
@@ -40,17 +40,17 @@ export async function GET() {
           "Content-Type": "application/json",
         },
       }
-    )
+    );
 
     return new Response(JSON.stringify(response.data), {
       status: 200,
       headers: { "Content-Type": "application/json" },
-    })
+    });
   } catch (error: any) {
-    console.error("Error fetching pinned repositories:", error)
+    console.error("Error fetching pinned repositories:", error);
     return new Response(JSON.stringify({ error: error.message }), {
       status: error.response?.status || 500,
       headers: { "Content-Type": "application/json" },
-    })
+    });
   }
 }

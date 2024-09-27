@@ -9,4 +9,4 @@ export const RepositoryTagsBackgroundColors = [
   "bg-gray-200",
   "bg-indigo-200",
   "bg-orange-200",
-]
+];

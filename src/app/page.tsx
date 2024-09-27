@@ -1,10 +1,10 @@
-import About from "@/components/portfolio/About"
-import Contact from "@/components/portfolio/Contact"
-import Experience from "@/components/portfolio/Experience"
-import Hero from "@/components/portfolio/Hero"
-import Navbar from "@/components/portfolio/Navbar"
-import PinnedRepo from "@/components/portfolio/PinnedRepo"
-import Tech from "@/components/portfolio/Tech"
+import About from "@/components/portfolio/about";
+import Contact from "@/components/portfolio/contact";
+import Experience from "@/components/portfolio/experience";
+import Hero from "@/components/portfolio/hero";
+import Navbar from "@/components/portfolio/navbar";
+import PinnedRepo from "@/components/portfolio/pinned-repo";
+import Tech from "@/components/portfolio/tech";
 
 export default function Home() {
   return (
@@ -19,5 +19,5 @@ export default function Home() {
       <PinnedRepo />
       <Contact />
     </div>
-  )
+  );
 }

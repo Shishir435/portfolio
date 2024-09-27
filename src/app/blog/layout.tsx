@@ -1,7 +1,8 @@
-import Navbar from "@/components/blog/Navbar"
-import { Metadata } from "next"
-import { ThemeProvider } from "../../providers/ThemeProvider"
-import ReactQueryProvider from "@/providers/ReactQueryProvider"
+import { Metadata } from "next";
+
+import Navbar from "@/components/blog/navbar";
+
+import { ThemeProvider } from "../../providers/theme-provider";
 
 export const metadata: Metadata = {
   title: {
@@ -9,11 +10,11 @@ export const metadata: Metadata = {
     default: "Blog",
   },
   description: "Shishir's Blog",
-}
+};
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
   return (
     <>
@@ -27,5 +28,5 @@ export default function RootLayout({
         {children}
       </ThemeProvider>
     </>
-  )
+  );
 }

@@ -19,7 +19,7 @@ const AboutLinks = [
     imgUrl: "/instagram40.png",
     url: "https://www.instagram.com/_shishir435/",
   },
-]
+];
 
 const MobileNavLinks = [
   {
@@ -42,7 +42,7 @@ const MobileNavLinks = [
     linkName: "contact me",
     linkTo: "#contact",
   },
-]
+];
 
 const DesktopNavLinks = [
   {
@@ -61,7 +61,7 @@ const DesktopNavLinks = [
     linkName: "blog",
     linkTo: "/blog",
   },
-]
+];
 
 const Technologies = [
   {
@@ -109,161 +109,43 @@ const Technologies = [
     name: "github",
     icon: "/webp/github80.webp",
   },
-]
-const Projects = [
-  {
-    name: "VerbVoyage",
-    description:
-      "A Next.js app with post management, profile visibility, tagging, search, secure authentication (OAuth, NextAuth), MongoDB.",
-    tags: [
-      {
-        name: "mern",
-        color: "blue-text-gradient",
-      },
-      {
-        name: "nextJS",
-        color: "green-text-gradient",
-      },
-      {
-        name: "nextAuth",
-        color: "pink-text-gradient",
-      },
-    ],
-    source_code_link: "https://github.com/Shishir435/Verbvoyage",
-    live_demo_link: "https://verbvoyage.vercel.app/",
-  },
-  {
-    name: "CoinMinder",
-    description:
-      "Expense management app with MongoDB, React, Node, and Express.Efficient filtering by date. User-friendly interface for financial analysis.",
-    tags: [
-      {
-        name: "mern",
-        color: "blue-text-gradient",
-      },
-    ],
-    source_code_link: "https://github.com/Shishir435/coinMinder",
-    live_demo_link: "https://wandering-erin-nightingale.cyclic.app/login",
-  },
-  {
-    name: "LectureSummary",
-    description:
-      "A Chrome extension for video summarization, which elevated user comprehension across platforms like YouTube, Udemy, and Coursera, amassing over 120 regular users.",
-    tags: [
-      {
-        name: "Javascript",
-        color: "blue-text-gradient",
-      },
-      {
-        name: "Edenai",
-        color: "green-text-gradient",
-      },
-      {
-        name: "ChromeExtension",
-        color: "pink-text-gradient",
-      },
-    ],
-    source_code_link: "https://github.com/Shishir435/SpeedySynopsis",
-    live_demo_link:
-      "https://chromewebstore.google.com/detail/lecture-summary-youtube-u/mnejhfjohfbgdoadgjmfigodfagokeme?pli=1",
-  },
-  {
-    name: "Appointcraft",
-    description:
-      "A client and appointment management dashboard using React.js, Typescript, Redux, and Shadcn-ui, optimizing client interactions and scheduling efficiency.",
-    tags: [
-      {
-        name: "React",
-        color: "blue-text-gradient",
-      },
-      {
-        name: "Shadcn-ui",
-        color: "green-text-gradient",
-      },
-      {
-        name: "React-Calander",
-        color: "pink-text-gradient",
-      },
-    ],
-    source_code_link: "https://github.com/Shishir435/AppointCraft",
-    live_demo_link: "https://appointcraft.netlify.app",
-  },
-  {
-    name: "YouTubeUiClone",
-    description:
-      "Api-based clone application for searching and watching YouTube videos. It also has a sidebar with various video categories.",
-    tags: [
-      {
-        name: "react",
-        color: "blue-text-gradient",
-      },
-      {
-        name: "rapidApi",
-        color: "green-text-gradient",
-      },
-      {
-        name: "materialUi",
-        color: "pink-text-gradient",
-      },
-    ],
-    source_code_link: "https://github.com/Shishir435/youtube-clone",
-    live_demo_link: "https://cloneyoutubeap.netlify.app/",
-  },
-  {
-    name: "ChromeTabClone",
-    description:
-      "A fully responsive search engine like Google chrome tab allows users to search for anything.",
-    tags: [
-      {
-        name: "react",
-        color: "blue-text-gradient",
-      },
-      {
-        name: "googleCustomApi",
-        color: "green-text-gradient",
-      },
-      {
-        name: "materialUi",
-        color: "pink-text-gradient",
-      },
-    ],
-    source_code_link: "https://github.com/Shishir435/Google-Clone",
-    live_demo_link: "https://googlezclone.netlify.app/",
-  },
-]
+];
 
 const Experiences = [
   {
     designation: "Blockchain and Software Developer",
     company: "Doge Capital Fzco",
     timeline: "May ‘24 - Jul ‘24",
-    description: `Increased user retention by 25% through wallet integration and optimized game functionality. Implemented Ethereum, Bitcoin, and Solana wallet integration`,
+    description:
+      "Increased user retention by 25% through wallet integration and optimized game functionality. Implemented Ethereum, Bitcoin, and Solana wallet integration",
   },
   {
     designation: "FrontEnd Developer",
     company: "Qliclabs Technology",
     timeline: "May ‘23 - Sep ‘23",
-    description: `Boosted user retention by 30% by implementing dynamic product search and advanced filtering. Optimized website performance and revamped e-commerce platform UI.`,
+    description:
+      "Boosted user retention by 30% by implementing dynamic product search and advanced filtering. Optimized website performance and revamped e-commerce platform UI.",
   },
   {
     designation: "Software Engineer",
     company: "Unmodal Research Inc.",
     timeline: "Jun ‘23 - July ‘23",
-    description: `Optimized AI integration with GPT-3.5 Turbo, cutting response time by 35%. Developed AI-powered text generation & manipulation app. Integrated OpenAI's GPT-3.5 Turbo and DALL-E APIs.`,
+    description:
+      "Optimized AI integration with GPT-3.5 Turbo, cutting response time by 35%. Developed AI-powered text generation & manipulation app. Integrated OpenAI's GPT-3.5 Turbo and DALL-E APIs.",
   },
   {
     designation: "Freelancer",
     company: "AN3O Technologies",
     timeline: "July ‘24- Aug ‘24",
-    description: `Automated web scraping for 50+ websites, saving 20+ hours weekly. Developed a custom web scraping script using Scrapy and BeautifulSoup.`,
+    description:
+      "Automated web scraping for 50+ websites, saving 20+ hours weekly. Developed a custom web scraping script using Scrapy and BeautifulSoup.",
   },
-]
+];
 
 export {
   AboutLinks,
-  MobileNavLinks,
   DesktopNavLinks,
-  Technologies,
-  Projects,
   Experiences,
-}
+  MobileNavLinks,
+  Technologies,
+};

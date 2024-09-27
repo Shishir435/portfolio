@@ -1,9 +1,11 @@
-"use client"
-import AuthAdminCheck from "@/components/portfolio/AuthAdminCheck"
-import React, { useState } from "react"
+"use client";
+
+import { useState } from "react";
+
+import AuthAdminCheck from "@/components/portfolio/auth-admin-check";
 
 const AdminPage = () => {
-  const [isAdmin, setIsAdmin] = useState(false)
+  const [isAdmin, setIsAdmin] = useState(false);
   return (
     <div>
       {isAdmin ? (
@@ -12,7 +14,7 @@ const AdminPage = () => {
         <AuthAdminCheck setIsAdmin={setIsAdmin} />
       )}
     </div>
-  )
-}
+  );
+};
 
-export default AdminPage
+export default AdminPage;

@@ -1,9 +1,13 @@
-"use client"
+"use client";
 
-import AuthAdminCheck from "@/components/portfolio/AuthAdminCheck"
-import Overlay from "@/components/portfolio/Overlay"
-import { Button } from "@/components/ui/button"
-import { Checkbox } from "@/components/ui/checkbox"
+import { useState } from "react";
+
+import axios from "axios";
+
+import AuthAdminCheck from "@/components/portfolio/auth-admin-check";
+import Overlay from "@/components/portfolio/overlay";
+import { Button } from "@/components/ui/button";
+import { Checkbox } from "@/components/ui/checkbox";
 import {
   Table,
   TableBody,
@@ -11,90 +15,88 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "@/components/ui/table"
-import axios from "axios"
-import { ReactElement, useRef, useState } from "react"
+} from "@/components/ui/table";
 
 interface ContactMessage {
-  _id: string
-  name: string
-  email: string
-  message: string
-  resolve: boolean
+  _id: string;
+  name: string;
+  email: string;
+  message: string;
+  resolve: boolean;
 }
 
 const Page = () => {
-  const [ContactMessages, setContactMessages] = useState<ContactMessage[]>([])
-  const [isLoading, setIsLoading] = useState(false)
-  const [isResolveing, setIsResolving] = useState(false)
-  const [IsAdmin, setIsAdmin] = useState(false)
-  const [getFetchType, setGetFetchType] = useState<string>("all")
-  function stringTobool(data: string) {
-    if (data === "true") return true
-    return false
+  const [ContactMessages, setContactMessages] = useState<ContactMessage[]>([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const [isResolving, setIsResolving] = useState(false);
+  const [IsAdmin, setIsAdmin] = useState(false);
+  const [getFetchType, setGetFetchType] = useState<string>("all");
+  function stringToBool(data: string) {
+    if (data === "true") return true;
+    return false;
   }
-  async function handleCheckBoxChnage(_id: string, value: boolean | string) {
-    const boolVal = typeof value === "string" ? stringTobool(value) : value
+  async function handleCheckBoxChange(_id: string, value: boolean | string) {
+    const boolVal = typeof value === "string" ? stringToBool(value) : value;
 
     setContactMessages((prevContactMessages) => {
       return prevContactMessages.map((message) => {
         if (message._id === _id) {
           // Optimistic update: Update the resolve value
-          return { ...message, resolve: boolVal }
+          return { ...message, resolve: boolVal };
         }
-        return message
-      })
-    })
+        return message;
+      });
+    });
 
     const patchData = {
       id: _id,
       resolveValue: boolVal,
-    }
+    };
 
     try {
-      setIsResolving(true)
-      const response = await axios.patch("/api/portfolio/contact", patchData)
+      setIsResolving(true);
+      const response = await axios.patch("/api/portfolio/contact", patchData);
       // Successful API call, no need for additional UI updates
       // console.log(response);
     } catch (error) {
-      console.error("handleCheckBoxChnage", error)
+      console.error("handleCheckBoxChange", error);
 
       // If the API call fails, revert the local state to its previous value
       setContactMessages((prevContactMessages) => {
         return prevContactMessages.map((message) => {
           if (message._id === _id) {
-            return { ...message, resolve: !boolVal }
+            return { ...message, resolve: !boolVal };
           }
-          return message
-        })
-      })
+          return message;
+        });
+      });
     } finally {
-      setIsResolving(false)
+      setIsResolving(false);
     }
   }
 
   async function fetchMessages(fetchType: string) {
     try {
-      setIsLoading(true)
-      const resposne = await axios.get(
+      setIsLoading(true);
+      const response = await axios.get(
         `/api/portfolio/contact?fetchType=${fetchType}`
-      )
-      setContactMessages(resposne.data.resp)
+      );
+      setContactMessages(response.data.resp);
     } catch (error) {
-      console.log(error)
-      setIsLoading(false)
-      alert("Oops somethis went wrong please check console for more info")
+      console.log(error);
+      setIsLoading(false);
+      alert("Oops something went wrong please check console for more info");
     } finally {
-      setIsLoading(false)
+      setIsLoading(false);
     }
   }
 
   function handleClick(event: React.MouseEvent<HTMLButtonElement>) {
-    const fetchType = event.currentTarget.getAttribute("data-fetch")
-    let mock = "all"
+    const fetchType = event.currentTarget.getAttribute("data-fetch");
+    let mock = "all";
 
-    fetchType ? fetchMessages(fetchType) : fetchMessages(mock)
-    fetchType ? setGetFetchType(fetchType) : setGetFetchType("all")
+    fetchType ? fetchMessages(fetchType) : fetchMessages(mock);
+    fetchType ? setGetFetchType(fetchType) : setGetFetchType("all");
   }
 
   return IsAdmin ? (
@@ -145,7 +147,7 @@ const Page = () => {
                   <Checkbox
                     checked={resolve}
                     onCheckedChange={(value) => {
-                      handleCheckBoxChnage(_id, value)
+                      handleCheckBoxChange(_id, value);
                     }}
                   />
                 </TableCell>
@@ -157,7 +159,7 @@ const Page = () => {
     </div>
   ) : (
     <AuthAdminCheck setIsAdmin={setIsAdmin} />
-  )
-}
+  );
+};
 
-export default Page
+export default Page;

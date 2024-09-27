@@ -76,7 +76,7 @@
 }
 
 .text-gradient {
-  @apply bg-gradient-to-r from-[#df5759]  to-[#8b8bb6] bg-clip-text text-transparent;
+  @apply bg-gradient-to-r from-[#df5759] to-[#8b8bb6] bg-clip-text text-transparent;
 }
 
 /* Blue Text Gradient */
