@@ -1,10 +1,10 @@
 import { Toaster } from "@/components/ui/sonner"
+import ReactQueryProvider from "@/providers/ReactQueryProvider"
 import { Analytics } from "@vercel/analytics/react"
 import { SpeedInsights } from "@vercel/speed-insights/next"
 import type { Metadata } from "next"
 import { Inter } from "next/font/google"
 import "./globals.css"
-import { ReactQueryClientProvider } from "../providers/ReactQueryClientProvider"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
@@ -18,16 +18,16 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <ReactQueryClientProvider>
-      <html lang="en" suppressHydrationWarning>
-        <link rel="icon" href="/favicon.svg" />
-        <body className={`${inter.className}`}>
+    <html lang="en" suppressHydrationWarning>
+      <link rel="icon" href="/favicon.svg" />
+      <body className={`${inter.className}`}>
+        <ReactQueryProvider>
           {children}
           <Analytics />
           <SpeedInsights />
           <Toaster richColors closeButton />
-        </body>
-      </html>
-    </ReactQueryClientProvider>
+        </ReactQueryProvider>
+      </body>
+    </html>
   )
 }

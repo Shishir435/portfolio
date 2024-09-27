@@ -1,6 +1,7 @@
 import Navbar from "@/components/blog/Navbar"
 import { Metadata } from "next"
 import { ThemeProvider } from "../../providers/ThemeProvider"
+import ReactQueryProvider from "@/providers/ReactQueryProvider"
 
 export const metadata: Metadata = {
   title: {
@@ -16,20 +17,15 @@ export default function RootLayout({
 }) {
   return (
     <>
-      <html lang="en" suppressHydrationWarning>
-        <head />
-        <body>
-          <ThemeProvider
-            attribute="class"
-            defaultTheme="system"
-            enableSystem
-            disableTransitionOnChange
-          >
-            <Navbar />
-            {children}
-          </ThemeProvider>
-        </body>
-      </html>
+      <ThemeProvider
+        attribute="class"
+        defaultTheme="system"
+        enableSystem
+        disableTransitionOnChange
+      >
+        <Navbar />
+        {children}
+      </ThemeProvider>
     </>
   )
 }
