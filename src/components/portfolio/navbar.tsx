@@ -4,7 +4,6 @@ import { DesktopNavLinks } from "@/lib/content";
 
 import { buttonVariants } from "../ui/button";
 import Circle from "./circle";
-import MobileNav from "./mobile-nav";
 
 const Navbar = () => {
   return (
@@ -36,7 +35,7 @@ const Navbar = () => {
             )}
           </div>
         </div>
-        <div className="hidden md:block">
+        <div>
           <div>
             <Link
               href="#contact"
@@ -48,8 +47,6 @@ const Navbar = () => {
             </Link>
           </div>
         </div>
-        {/* Mobile navigation */}
-        <MobileNav />
       </div>
     </>
   );
