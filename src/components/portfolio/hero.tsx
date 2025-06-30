@@ -4,6 +4,7 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
 import { buttonVariants } from "../ui/button";
+import OllamaClientBadge from "./ollama-client-badge";
 
 const Hero = () => {
   return (
@@ -27,22 +28,7 @@ const Hero = () => {
         <h1 className="text-5xl sm:text-7xl">Shishir Chaurasiya</h1>
       </div>
       <div className="mt-8 flex items-center justify-center gap-10">
-        <Link
-          href="https://github.com/Shishir435"
-          title="Nextjs Developer"
-          className={`${buttonVariants({
-            variant: "secondary",
-          })} flex gap-4 p-4`}
-        >
-          <Image
-            src="/nextjs30.png"
-            width={30}
-            height={30}
-            alt="nextjs image"
-            style={{ height: "auto" }}
-          ></Image>
-          Developer
-        </Link>
+        <OllamaClientBadge/>
         <Link
           href="https://github.com/Shishir435"
           title="See My Github"
