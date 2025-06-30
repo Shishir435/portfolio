@@ -69,7 +69,7 @@ const ProjectCard = ({
             </div>
           </div>
         </div>
-        <p className="mt-2 text-[14px]">{description.slice(0,150)}</p>
+        <p className="mt-2 text-[14px]">{description.slice(0, 150)}</p>
       </div>
       <div className="my-4 flex flex-wrap gap-2 px-4">
         {tags.length > 0 ? (

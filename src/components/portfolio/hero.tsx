@@ -28,7 +28,7 @@ const Hero = () => {
         <h1 className="text-5xl sm:text-7xl">Shishir Chaurasiya</h1>
       </div>
       <div className="mt-8 flex items-center justify-center gap-10">
-        <OllamaClientBadge/>
+        <OllamaClientBadge />
         <Link
           href="https://github.com/Shishir435"
           title="See My Github"
