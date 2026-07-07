@@ -6,7 +6,9 @@ try {
 	);
 	const data = await res.json();
 	version = data.value;
-} catch {}
+} catch (e) {
+	console.warn('Failed to fetch Ollama version:', e);
+}
 ---
 
 <a
