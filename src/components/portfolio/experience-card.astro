@@ -1,0 +1,25 @@
+---
+export interface Props {
+	designation: string;
+	company: string;
+	timeline: string;
+	description: string;
+}
+
+const { designation, company, timeline, description } = Astro.props;
+---
+
+<div class="rounded-xl bg-gradient-to-r from-[#f6f5fe] to-[#ececec] p-4 shadow-md">
+  <div class="px-4">
+    <div class="flex items-center justify-between">
+      <div class="w-full">
+        <h3 class="flex w-full justify-between text-base font-bold capitalize text-black">
+          <span>{designation}</span>
+          <span class="text-sm text-gray-500">{timeline}</span>
+        </h3>
+        <h4 class="italic text-muted-foreground">@{company}</h4>
+      </div>
+    </div>
+    <p class="mt-3 text-[14px] text-gray-700">{description}</p>
+  </div>
+</div>

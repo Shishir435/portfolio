@@ -1,0 +1,60 @@
+---
+export interface Props {
+	name: string;
+	description: string;
+	tags: { topic: { name: string } }[];
+	source_code_link: string;
+	live_demo_link: string;
+}
+
+const { name, description, tags, source_code_link, live_demo_link } =
+	Astro.props;
+
+const tagColors = [
+	'bg-blue-200',
+	'bg-green-200',
+	'bg-yellow-200',
+	'bg-red-200',
+	'bg-purple-200',
+	'bg-pink-200',
+	'bg-teal-200',
+	'bg-gray-200',
+	'bg-indigo-200',
+	'bg-orange-200',
+];
+---
+
+<div class="rounded-xl bg-gradient-to-r from-[#f6f5fe] to-[#ececec] p-1 shadow-md">
+  <div class="mt-5 px-4">
+    <div class="flex items-center justify-between">
+      <div>
+        <a href={live_demo_link} target="_blank" title="Click to see demo">
+          <h3 class="text-[24px] font-bold capitalize text-black">{name}</h3>
+        </a>
+      </div>
+      <div class="m-3 flex gap-5">
+        <a href={source_code_link} target="_blank" title="Github Repo Link">
+          <img src="/svg/github.svg" alt="github_link" height="30" width="30" class="bg-transparent object-contain" />
+        </a>
+        {live_demo_link && (
+          <a href={live_demo_link} target="_blank" title="Live Website Link">
+            <img src="/svg/website.svg" alt="website_link" height="30" width="30" class="bg-transparent object-contain" />
+          </a>
+        )}
+      </div>
+    </div>
+    <p class="mt-2 text-[14px] text-muted-foreground">{description?.slice(0, 150)}</p>
+  </div>
+  {tags && tags.length > 0 && (
+    <div class="my-4 flex flex-wrap gap-2 px-4">
+      {tags.map((tag, index) => {
+        const color = tagColors[index % tagColors.length];
+        return (
+          <span class={`rounded-full px-1.5 py-0.5 text-sm ${color}`}>
+            {tag.topic.name}
+          </span>
+        );
+      })}
+    </div>
+  )}
+</div>

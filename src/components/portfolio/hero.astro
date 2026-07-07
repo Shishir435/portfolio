@@ -1,0 +1,65 @@
+---
+import OllamaClientBadge from "./ollama-client-badge.astro";
+---
+
+<section id="hero" class="relative overflow-hidden pt-20">
+    <div aria-hidden="true">
+        <div class="bubble-top"></div>
+        <div class="bubble"></div>
+    </div>
+
+    <img
+        src="/webp/panda300circ.webp"
+        alt="avatar"
+        class="mx-auto mt-10 size-56 rounded-full"
+    />
+
+    <div class="mt-6 text-center">
+        <h1 class="text-5xl sm:text-7xl font-bold tracking-tight">
+            Shishir Chaurasiya
+        </h1>
+    </div>
+
+    <div class="mt-8 flex items-center justify-center gap-10">
+        <OllamaClientBadge />
+        <a
+            href="https://github.com/Shishir435"
+            title="See My Github"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-2 rounded-md px-4 py-2 text-sm font-medium transition-colors hover:bg-secondary"
+        >
+            <img src="/svg/github.svg" width="20" height="20" alt="GitHub" />
+        </a>
+    </div>
+
+    <div class="mt-8 text-center">
+        <p class="text-lg text-muted-foreground">
+            Crafting <span class="text-gradient">Aesthetic</span> Interfaces and <span
+                class="text-gradient">Seamless</span
+            > Full-stack applications
+        </p>
+    </div>
+
+    <div class="mb-3 mt-10 text-center md:mt-14">
+        <a
+            href="mailto:shishirchaurasiya435@gmail.com"
+            class="inline-flex items-center gap-2 rounded-full bg-blue-600 px-[80px] py-4 text-lg text-white no-underline transition-colors hover:bg-blue-700"
+        >
+            Let's Talk
+            <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="ml-2"
+                ><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg
+            >
+        </a>
+    </div>
+</section>

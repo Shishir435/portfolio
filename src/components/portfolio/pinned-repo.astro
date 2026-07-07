@@ -1,0 +1,21 @@
+---
+import repos from '@/data/pinned-repos.json';
+import ProjectCard from './project-card.astro';
+---
+
+<section id="work" class="py-24">
+  <div class="mx-auto max-w-6xl p-6">
+    <h2 class="mb-8 text-3xl font-bold">Personal Projects</h2>
+    <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+      {repos.map((repo: any) => (
+        <ProjectCard
+          name={repo.name}
+          description={repo.description}
+          tags={repo.repositoryTopics.nodes}
+          source_code_link={repo.url}
+          live_demo_link={repo.homepageUrl}
+        />
+      ))}
+    </div>
+  </div>
+</section>

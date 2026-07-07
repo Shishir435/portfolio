@@ -1,0 +1,66 @@
+---
+const aboutLinks = [
+	{
+		name: 'Upwork',
+		imgUrl: '/svg/upwork.svg',
+		url: 'https://www.upwork.com/freelancers/~019752a06cf3f11b51',
+	},
+	{
+		name: 'Github',
+		imgUrl: '/svg/github.svg',
+		url: 'https://github.com/Shishir435',
+	},
+	{
+		name: 'Linkedin',
+		imgUrl: '/svg/linkedin.svg',
+		url: 'https://linkedin.com/in/shishir-chaurasiya',
+	},
+	{
+		name: 'Instagram',
+		imgUrl: '/svg/instagram.svg',
+		url: 'https://www.instagram.com/_shishir435/',
+	},
+];
+---
+
+<section id="about" class="mx-3 mt-24">
+  <div class="mx-auto my-8 max-w-6xl rounded-3xl bg-gradient-to-r from-[#c0d8f2] to-[#ddeafa] p-3 md:p-6">
+    <div class="flex items-center justify-between gap-10">
+      <div class="w-full px-6 md:w-10/12 md:px-10">
+        <h2 class="my-4 text-4xl font-bold">About Me</h2>
+        <p class="my-6 text-muted-foreground">
+          Hello, I'm <span class="text-gradient">Shishir</span>,
+          and my passion lies in being a dedicated full-stack web developer.
+          With a commitment to delivering top-notch web solutions.
+        </p>
+        <p class="my-6 text-muted-foreground">
+          I specialize in both frontend and backend development. Let's
+          collaborate to create outstanding digital experiences together.
+        </p>
+      </div>
+      <div class="hidden w-2/5 md:block">
+        <img
+          src="/webp/shishir.webp"
+          title="Shishir's Image"
+          width="200"
+          height="200"
+          alt="work"
+          class="mx-auto rounded-xl"
+        />
+      </div>
+    </div>
+    <div class="mb-3 mt-8 flex flex-wrap items-center justify-center gap-5 px-6 md:px-10">
+      {aboutLinks.map((link) => (
+        <a href={link.url} target="_blank" rel="noopener noreferrer">
+          <img
+            src={link.imgUrl}
+            width="40"
+            height="40"
+            alt={`${link.name} link`}
+            title={`See my ${link.name} profile`}
+          />
+        </a>
+      ))}
+    </div>
+  </div>
+</section>

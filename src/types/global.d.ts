@@ -1,32 +1,32 @@
 export {};
 
 declare global {
-  interface RepositoryTopic {
-    topic: { name: "inline-editing" };
-  }
+	interface RepositoryTopic {
+		topic: { name: string };
+	}
 
-  interface Repository {
-    name: string;
-    description: string;
-    homepageUrl: string;
-    url: string;
-    repositoryTopics: {
-      nodes: RepositoryTopic[];
-    };
-  }
+	interface Repository {
+		name: string;
+		description: string;
+		homepageUrl: string;
+		url: string;
+		repositoryTopics: {
+			nodes: RepositoryTopic[];
+		};
+	}
 
-  interface PinnedRepositoriesResponse {
-    data: {
-      user: {
-        pinnedItems: {
-          nodes: Repository[];
-        };
-      };
-    };
-  }
+	interface PinnedRepositoriesResponse {
+		data: {
+			user: {
+				pinnedItems: {
+					nodes: Repository[];
+				};
+			};
+		};
+	}
 
-  interface BlogPost {
-    filename: string;
-    content: string;
-  }
+	interface BlogPost {
+		filename: string;
+		content: string;
+	}
 }

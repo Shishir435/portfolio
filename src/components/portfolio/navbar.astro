@@ -1,0 +1,38 @@
+---
+import Circle from './circle.astro';
+
+const navLinks = [
+	{ name: 'work', href: '#work' },
+	{ name: 'about', href: '#about' },
+	{ name: 'tech', href: '#tech' },
+	{ name: 'blog', href: '/blog/ollamaclient' },
+];
+---
+
+<div class="relative flex h-[125px] w-full items-center justify-between overflow-hidden px-5 py-8 md:px-14 lg:px-20">
+  <div class="text-2xl font-bold">
+    <a href="/">
+      <span class="text-gradient">Shishir <span class="hidden sm:inline-block">Chaurasiya</span></span>
+    </a>
+  </div>
+
+  <Circle />
+
+  <div class="hidden items-center md:flex">
+    {navLinks.map((link) => (
+      <a
+        href={link.href}
+        class="rounded-md px-4 py-2 capitalize text-foreground transition-colors hover:bg-secondary"
+      >
+        {link.name}
+      </a>
+    ))}
+  </div>
+
+  <a
+    href="/blog/ollamaclient"
+    class="rounded-md px-4 py-2 capitalize text-foreground transition-colors hover:bg-secondary md:hidden"
+  >
+    blog
+  </a>
+</div>
