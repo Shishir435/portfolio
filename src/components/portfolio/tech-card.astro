@@ -1,0 +1,21 @@
+---
+export interface Props {
+	name: string;
+	icon: string;
+}
+
+const { name, icon } = Astro.props;
+---
+
+<div
+    class="flex size-16 cursor-pointer flex-col items-center justify-evenly rounded-lg p-2 transition-colors hover:bg-secondary"
+>
+    <img
+        src={icon}
+        title={name}
+        width="64"
+        height="64"
+        alt={`${name}_logo`}
+        class="size-auto object-contain"
+    />
+</div>

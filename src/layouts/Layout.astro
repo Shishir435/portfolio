@@ -1,0 +1,56 @@
+---
+import '@/styles/globals.css';
+
+export interface Props {
+	title: string;
+	description?: string;
+	image?: string;
+}
+
+const {
+	title,
+	description = 'Full-stack web developer specializing in React, Next.js, TypeScript, Node.js, and modern web technologies.',
+	image = '/og-image.png',
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={image} />
+    <meta property="og:type" content="website" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={image} />
+
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Person",
+      name: "Shishir Chaurasiya",
+      url: "https://shishirchaurasiya.in",
+      image,
+      sameAs: [
+        "https://github.com/Shishir435",
+        "https://linkedin.com/in/shishir-chaurasiya",
+      ],
+    })}
+    />
+
+    <meta name="author" content="Shishir Chaurasiya" />
+    <meta name="theme-color" content="#667eea" />
+    <link rel="canonical" href={`https://shishirchaurasiya.in${Astro.url.pathname}`} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  </head>
+  <body class="min-h-screen bg-background text-foreground antialiased">
+    <slot />
+  </body>
+</html>

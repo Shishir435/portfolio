@@ -1,0 +1,28 @@
+---
+import TechCard from './tech-card.astro';
+
+const technologies = [
+	{ name: 'Java', icon: '/svg/java.svg' },
+	{ name: 'Spring Boot', icon: '/svg/springboot.svg' },
+	{ name: 'Typescript', icon: '/svg/typescript.svg' },
+	{ name: 'Node JS', icon: '/svg/nodejs.svg' },
+	{ name: 'React JS', icon: '/svg/react.svg' },
+	{ name: 'Zustand', icon: '/svg/zustand.svg' },
+	{ name: 'Tailwind CSS', icon: '/svg/tailwindcss.svg' },
+	{ name: 'Express', icon: '/svg/express.svg' },
+	{ name: 'PostgreSQL', icon: '/svg/postgresql.svg' },
+	{ name: 'MySQL', icon: '/svg/mysql.svg' },
+];
+---
+
+<section id="tech" class="mt-20">
+    <div class="mx-auto flex max-w-6xl flex-row flex-wrap justify-center p-6">
+        {
+            technologies.map((tech) => (
+                <div class="m-4 size-16">
+                    <TechCard name={tech.name} icon={tech.icon} />
+                </div>
+            ))
+        }
+    </div>
+</section>
